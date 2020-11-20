@@ -18,9 +18,9 @@
 #include <task.h>
 
 // define general variables to be used when pulling data from shares
-bool one_bit;
-float float_val;
-uint16_t sixteen_bit;
+// bool one_bit;
+// float float_val;
+// uint16_t sixteen_bit;
 
 // PID, PWM and IMU Variables
 uint8_t mtr_duty;
@@ -45,6 +45,13 @@ Share<bool> direction ("Motor direction");
 Share<float> cube_angle ("Current cube angle off horizontal");
 // Share<uint8_t> state ("Current state of the ");
 
+// Instantiate a MPU9250 object with a ridiculous name 
+MPU9250 MPUPU;
+// Instantiate MiniPID object and set Kp, Ki, Kd, and feed forward, respectively
+MiniPID PID(P,I,D,F);
+
+
+
 void setup() 
 {
 
@@ -56,20 +63,29 @@ void setup()
     delay (2000);
     Serial << endl << endl << "ME507 Cube Balance Intializing..." << endl;
 
-    // Test the IMU connection 
-    MPU9250 IMU;
-    // This will print a message verifying the MPU9250 is connected
-    IMU.isConnectedMPU9250();
+    // Initialize MPU
+    // This will print a message displaying the MPU's memory address, verifying the MPU9250 is connected
+    MPUPU.isConnectedMPU9250();
+    // This will store and print the MPU's bias
+    MPUPU.calibrateAccelGyro();
+    // This will set up the MPU and print a message confirming connection
+    MPUPU.setup(0x68);
+
+    // Initialize PID
+    // We can saturate the result from the integral component if we want to eliminate jerky response at beginning
+    // Assign P,I,D, and F values to controller
+    PID.setPID(P,I,D,F);
+    // Assign the setpoint where the cube is standing
+    PID.setSetpoint(VERTICAL);
+    // Saturate output to the maximum duty cycle
+    PID.setOutputLimits(MAX_DUTY);
 
     // Initialize the motor and IMU
-
-    // Initialize motor PWM and direction pins
     // Motor PWM pin
     pinMode(A3, OUTPUT);
     // Motor direction pin
     pinMode(A0, OUTPUT);
     
-    // // Initialize IMU pins
     // // SDA pin
     // pinMode(PA15, INPUT);
     // // SDL pin
@@ -125,7 +141,7 @@ for(;;){
   digitalWrite(A0, mtr_dir);
 
   // update the PID output manually
-  void IMU();
+  vTaskDelay(pdMS_TO_TICKS(5));
 }
 
 
@@ -134,22 +150,7 @@ void PID ( void* p_params)
 {
 (void)p_params;
 
-// Create a PID object and set Kp, Ki, Kd, and feed forward, respectively
-MiniPID PID(P,I,D,F);
-
-// Initialize PID
-// We can saturate the result from the integral component if we want to eliminate jerky response at beginning
-
-// Assign P,I,D, and F values to controller
-PID.setPID(P,I,D,F);
-// Assign the setpoint where the cube is standing
-PID.setSetpoint(VERTICAL);
-// Saturate output to the maximum duty cycle
-PID.setOutputLimits(MAX_DUTY);
-
 for(;;) {
-    
-
 
   // get the current angle of the cube
   cube_angle.get(cube_ang);
@@ -161,6 +162,7 @@ for(;;) {
   error = cube_ang - VERTICAL;
 
     // turn the motor in the correct direction to keep it balanced
+    // NEEDS TO BE TESTED TO VERIFY CORRECT DIRECTIONS
     if (error < 1){
       direction.put(1);
     }
@@ -169,7 +171,8 @@ for(;;) {
     }
 
     // Update the PWM signal manually
-    void PWM();
+    
+    vTaskDelay(pdMS_TO_TICKS(5));
 }
 
 
@@ -178,35 +181,25 @@ for(;;) {
 void IMU(void* p_params)
 {
 (void)p_params;
-// Create a class object
-
-// MPU9250 IMU;
-
-// // The setup method calibrates and intitializes the sensor with the given memory address
-// IMU.setup(0x68);
 
 for(;;){
 
-// collect the newest data
-IMU.update();
+  // collect the newest data
+  MPUPU.update();
 
-// calculate the updated angle data
-IMU.getRoll();
-IMU.getPitch();
-IMU.getYaw();
+  // calculate the updated angle data using these functions
+  MPUPU.getRoll();
+  MPUPU.getPitch();
+  MPUPU.getYaw();
 
-// not sure which angle we are looking for, but stuff it in the share and pass it on
-cube_angle.put(IMU.getYaw());
+  // not sure which angle we are looking for, but stuff it in the share and pass it on
+  cube_angle.put(MPUPU.getYaw());
 
-void PID();
+  void PID();
 
+vTaskDelay(pdMS_TO_TICKS(12));
 }
 }
-
-
-
-
-
 
 void loop() 
 {
