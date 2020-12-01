@@ -62,6 +62,105 @@ MPU9250 MPUPU;
 MiniPID PID(P,I,D,F);
 
 
+/** @brief   Task which drives the motor. 
+ *  @details This task runs at precise intervals using @c vTaskDelay() and @c pdMS_TO_TICKS to 
+ *           set delays of intervals in ms isntead of timer ticks. This task collects the values in 
+ *           the duty_cycle and direction shares and outputs them to the motor.
+ *  @param   p_params A pointer to function parameters which we don't use.
+ */
+void PWM (void* p_params)
+{
+(void)p_params;
+
+for(;;){
+  // pull the duty cycle from the share
+  duty_cycle.get(mtr_duty);
+
+  // pull the direction from the share
+  direction.get(mtr_dir);
+
+  // turn the motor according to the pulled values
+  analogWrite(A3, mtr_duty);
+  digitalWrite(A0, mtr_dir);
+
+  // update the PID output manually
+  vTaskDelay(pdMS_TO_TICKS(5));
+}
+
+
+}
+
+/** @brief   Task which runs the PID controller
+ *  @details This task runs at precise intervals using @c vTaskDelay() and @c pdMS_TO_TICKS to 
+ *           set delays of intervals in ms isntead of timer ticks. Using the angle in the share 
+ *           as the current value, the PID controller generates an output that is put into the 
+ *           mtr_duty share. The direction is decided after and put into the direction share. 
+ *  @param   p_params A pointer to function parameters which we don't use.
+ */
+void PID (void* p_params)
+{
+(void)p_params;
+
+for(;;) {
+
+  // get the current angle of the cube
+  cube_angle.get(cube_ang);
+
+  // get the output of the PID and put it in the share
+  mtr_duty = PID.getOutput(cube_ang, VERTICAL);
+  duty_cycle.put(mtr_duty);
+
+  error = cube_ang - VERTICAL;
+
+    // turn the motor in the correct direction to keep it balanced
+    // NEEDS TO BE TESTED TO VERIFY CORRECT DIRECTIONS
+    if (error < 1){
+      direction.put(1);
+    }
+    else{
+      direction.put(0);
+    }
+
+    // Update the PWM signal manually
+    
+    vTaskDelay(pdMS_TO_TICKS(5));
+}
+
+
+
+}
+
+/** @brief   Task which checks button status.
+ *  @details This task runs at precise intervals using @c vTaskDelay() and @c pdMS_TO_TICKS to 
+ *           set delays of intervals in ms isntead of timer ticks. This task updates the IMU data
+ *           and then collects all three angles of rotation. The correct angle is selected and placed
+ *           into the cube_angle share.
+ *  @param   p_params A pointer to function parameters which we don't use.
+ */
+void IMU(void* p_params)
+{
+(void)p_params;
+
+for(;;){
+
+  // collect the newest data
+  MPUPU.update();
+
+  // calculate the updated angle data using these functions
+  MPUPU.getRoll();
+  MPUPU.getPitch();
+  MPUPU.getYaw();
+
+  // not sure which angle we are looking for, but stuff it in the share and pass it on
+  cube_angle.put(MPUPU.getYaw());
+
+  void PID();
+
+vTaskDelay(pdMS_TO_TICKS(12));
+}
+}
+
+
 /** @brief   Function that runs once to setup the balancing cube.
  *  @details This task runs once and does a number of things
  *           1) Verifies the MPU is connected and the PID is correctly set up. 
@@ -143,103 +242,6 @@ void setup()
     Serial << "Completed Initialization, please place the cube in the starting position." << endl;
 }
 
-/** @brief   Task which drives the motor. 
- *  @details This task runs at precise intervals using @c vTaskDelay() and @c pdMS_TO_TICKS to 
- *           set delays of intervals in ms isntead of timer ticks. This task collects the values in 
- *           the duty_cycle and direction shares and outputs them to the motor.
- *  @param   p_params A pointer to function parameters which we don't use.
- */
-void PWM (void* p_params)
-{
-(void)p_params;
-
-for(;;){
-  // pull the duty cycle from the share
-  duty_cycle.get(mtr_duty);
-
-  // pull the direction from the share
-  direction.get(mtr_dir);
-
-  // turn the motor according to the pulled values
-  analogWrite(A3, mtr_duty);
-  digitalWrite(A0, mtr_dir);
-
-  // update the PID output manually
-  vTaskDelay(pdMS_TO_TICKS(5));
-}
-
-
-}
-
-/** @brief   Task which runs the PID controller
- *  @details This task runs at precise intervals using @c vTaskDelay() and @c pdMS_TO_TICKS to 
- *           set delays of intervals in ms isntead of timer ticks. Using the angle in the share 
- *           as the current value, the PID controller generates an output that is put into the 
- *           mtr_duty share. The direction is decided after and put into the direction share. 
- *  @param   p_params A pointer to function parameters which we don't use.
- */
-void PID ( void* p_params)
-{
-(void)p_params;
-
-for(;;) {
-
-  // get the current angle of the cube
-  cube_angle.get(cube_ang);
-
-  // get the output of the PID and put it in the share
-  mtr_duty = PID.getOutput(cube_ang, VERTICAL);
-  duty_cycle.put(mtr_duty);
-
-  error = cube_ang - VERTICAL;
-
-    // turn the motor in the correct direction to keep it balanced
-    // NEEDS TO BE TESTED TO VERIFY CORRECT DIRECTIONS
-    if (error < 1){
-      direction.put(1);
-    }
-    else{
-      direction.put(0);
-    }
-
-    // Update the PWM signal manually
-    
-    vTaskDelay(pdMS_TO_TICKS(5));
-}
-
-
-
-}
-
-/** @brief   Task which checks button status.
- *  @details This task runs at precise intervals using @c vTaskDelay() and @c pdMS_TO_TICKS to 
- *           set delays of intervals in ms isntead of timer ticks. This task updates the IMU data
- *           and then collects all three angles of rotation. The correct angle is selected and placed
- *           into the cube_angle share.
- *  @param   p_params A pointer to function parameters which we don't use.
- */
-void IMU(void* p_params)
-{
-(void)p_params;
-
-for(;;){
-
-  // collect the newest data
-  MPUPU.update();
-
-  // calculate the updated angle data using these functions
-  MPUPU.getRoll();
-  MPUPU.getPitch();
-  MPUPU.getYaw();
-
-  // not sure which angle we are looking for, but stuff it in the share and pass it on
-  cube_angle.put(MPUPU.getYaw());
-
-  void PID();
-
-vTaskDelay(pdMS_TO_TICKS(12));
-}
-}
 
 void loop() 
 {
