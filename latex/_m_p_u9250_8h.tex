@@ -1,0 +1,201 @@
+\hypertarget{_m_p_u9250_8h}{}\doxysection{M\+P\+U9250.\+h File Reference}
+\label{_m_p_u9250_8h}\index{MPU9250.h@{MPU9250.h}}
+{\ttfamily \#include $<$Wire.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}M\+P\+U9250\+Register\+Map.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Quaternion\+Filter.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_m_p_u9250__}{M\+P\+U9250\+\_\+$<$ Wire\+Type, W\+H\+O\+\_\+\+A\+M\+\_\+\+I, A\+F\+S\+S\+E\+L, G\+F\+S\+S\+E\+L, M\+F\+S\+S\+E\+L $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_m_p_u9250_8h_aa9e4c49aeba6db28002d6b6b912b74df}{M\+P\+U9250\+\_\+H}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{_m_p_u9250_8h_a84ebc4d832401299030f1c25c2c0b63a}{M\+P\+U9250}} = \mbox{\hyperlink{class_m_p_u9250__}{M\+P\+U9250\+\_\+}}$<$ Two\+Wire, \mbox{\hyperlink{_m_p_u9250_8h_a5e09287cabd8928b26535dd64db43101}{M\+P\+U9250\+\_\+\+W\+H\+O\+A\+M\+I\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE}} $>$
+\item 
+using \mbox{\hyperlink{_m_p_u9250_8h_af97348391e51fe7106c10cfa69eb934c}{M\+P\+U9255}} = \mbox{\hyperlink{class_m_p_u9250__}{M\+P\+U9250\+\_\+}}$<$ Two\+Wire, \mbox{\hyperlink{_m_p_u9250_8h_a2a129f13e4ff2904c1ef22fdc3e50354}{M\+P\+U9255\+\_\+\+W\+H\+O\+A\+M\+I\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cba}{A\+FS}} \{ \mbox{\hyperlink{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa3e597e3f28d7648816e7ea9dd7a80f7e}{A\+F\+S\+::\+A2G}}, 
+\mbox{\hyperlink{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa76633c1f392db877424efaeba5891489}{A\+F\+S\+::\+A4G}}, 
+\mbox{\hyperlink{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa96b7cbee756a10f48120e5434c50f818}{A\+F\+S\+::\+A8G}}, 
+\mbox{\hyperlink{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa1dbc1381a0310913d84e80dbba691d5e}{A\+F\+S\+::\+A16G}}
+ \}
+\item 
+enum \mbox{\hyperlink{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7}{G\+FS}} \{ \mbox{\hyperlink{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7a1f16243aa9da63315009d1693affb748}{G\+F\+S\+::\+G250\+D\+PS}}, 
+\mbox{\hyperlink{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7a49ba76da08740551fcd1f4e7b71c06fa}{G\+F\+S\+::\+G500\+D\+PS}}, 
+\mbox{\hyperlink{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7a20564f9863f71578f0872e7891af0e37}{G\+F\+S\+::\+G1000\+D\+PS}}, 
+\mbox{\hyperlink{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7acff536125d3d3cffaa1d0b05276795f8}{G\+F\+S\+::\+G2000\+D\+PS}}
+ \}
+\item 
+enum \mbox{\hyperlink{_m_p_u9250_8h_a895cd718f2d2994228da693f2ae11ad9}{M\+FS}} \{ \mbox{\hyperlink{_m_p_u9250_8h_a895cd718f2d2994228da693f2ae11ad9a017a62d68c8b3bcef57d2db7a0fad4f1}{M\+F\+S\+::\+M14\+B\+I\+TS}}, 
+\mbox{\hyperlink{_m_p_u9250_8h_a895cd718f2d2994228da693f2ae11ad9abc8fbff50c83fecf113f78af8e15fff0}{M\+F\+S\+::\+M16\+B\+I\+TS}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr uint8\+\_\+t \mbox{\hyperlink{_m_p_u9250_8h_a5e09287cabd8928b26535dd64db43101}{M\+P\+U9250\+\_\+\+W\+H\+O\+A\+M\+I\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE}} \{0x71\}
+\item 
+static constexpr uint8\+\_\+t \mbox{\hyperlink{_m_p_u9250_8h_a2a129f13e4ff2904c1ef22fdc3e50354}{M\+P\+U9255\+\_\+\+W\+H\+O\+A\+M\+I\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE}} \{0x73\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_m_p_u9250_8h_aa9e4c49aeba6db28002d6b6b912b74df}\label{_m_p_u9250_8h_aa9e4c49aeba6db28002d6b6b912b74df}} 
+\index{MPU9250.h@{MPU9250.h}!MPU9250\_H@{MPU9250\_H}}
+\index{MPU9250\_H@{MPU9250\_H}!MPU9250.h@{MPU9250.h}}
+\doxysubsubsection{\texorpdfstring{MPU9250\_H}{MPU9250\_H}}
+{\footnotesize\ttfamily \#define M\+P\+U9250\+\_\+H}
+
+
+
+Definition at line 3 of file M\+P\+U9250.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_m_p_u9250_8h_a84ebc4d832401299030f1c25c2c0b63a}\label{_m_p_u9250_8h_a84ebc4d832401299030f1c25c2c0b63a}} 
+\index{MPU9250.h@{MPU9250.h}!MPU9250@{MPU9250}}
+\index{MPU9250@{MPU9250}!MPU9250.h@{MPU9250.h}}
+\doxysubsubsection{\texorpdfstring{MPU9250}{MPU9250}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_m_p_u9250_8h_a84ebc4d832401299030f1c25c2c0b63a}{M\+P\+U9250}} =  \mbox{\hyperlink{class_m_p_u9250__}{M\+P\+U9250\+\_\+}}$<$Two\+Wire, \mbox{\hyperlink{_m_p_u9250_8h_a5e09287cabd8928b26535dd64db43101}{M\+P\+U9250\+\_\+\+W\+H\+O\+A\+M\+I\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE}}$>$}
+
+
+
+Definition at line 898 of file M\+P\+U9250.\+h.
+
+\mbox{\Hypertarget{_m_p_u9250_8h_af97348391e51fe7106c10cfa69eb934c}\label{_m_p_u9250_8h_af97348391e51fe7106c10cfa69eb934c}} 
+\index{MPU9250.h@{MPU9250.h}!MPU9255@{MPU9255}}
+\index{MPU9255@{MPU9255}!MPU9250.h@{MPU9250.h}}
+\doxysubsubsection{\texorpdfstring{MPU9255}{MPU9255}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_m_p_u9250_8h_af97348391e51fe7106c10cfa69eb934c}{M\+P\+U9255}} =  \mbox{\hyperlink{class_m_p_u9250__}{M\+P\+U9250\+\_\+}}$<$Two\+Wire, \mbox{\hyperlink{_m_p_u9250_8h_a2a129f13e4ff2904c1ef22fdc3e50354}{M\+P\+U9255\+\_\+\+W\+H\+O\+A\+M\+I\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE}}$>$}
+
+
+
+Definition at line 899 of file M\+P\+U9250.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cba}\label{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cba}} 
+\index{MPU9250.h@{MPU9250.h}!AFS@{AFS}}
+\index{AFS@{AFS}!MPU9250.h@{MPU9250.h}}
+\doxysubsubsection{\texorpdfstring{AFS}{AFS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cba}{A\+FS}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A2G@{A2G}!MPU9250.h@{MPU9250.h}}\index{MPU9250.h@{MPU9250.h}!A2G@{A2G}}}\mbox{\Hypertarget{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa3e597e3f28d7648816e7ea9dd7a80f7e}\label{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa3e597e3f28d7648816e7ea9dd7a80f7e}} 
+A2G&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A4G@{A4G}!MPU9250.h@{MPU9250.h}}\index{MPU9250.h@{MPU9250.h}!A4G@{A4G}}}\mbox{\Hypertarget{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa76633c1f392db877424efaeba5891489}\label{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa76633c1f392db877424efaeba5891489}} 
+A4G&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A8G@{A8G}!MPU9250.h@{MPU9250.h}}\index{MPU9250.h@{MPU9250.h}!A8G@{A8G}}}\mbox{\Hypertarget{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa96b7cbee756a10f48120e5434c50f818}\label{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa96b7cbee756a10f48120e5434c50f818}} 
+A8G&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A16G@{A16G}!MPU9250.h@{MPU9250.h}}\index{MPU9250.h@{MPU9250.h}!A16G@{A16G}}}\mbox{\Hypertarget{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa1dbc1381a0310913d84e80dbba691d5e}\label{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa1dbc1381a0310913d84e80dbba691d5e}} 
+A16G&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 11 of file M\+P\+U9250.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11 \{ A2G, A4G, A8G, \mbox{\hyperlink{_m_p_u9250_8h_a8cf865df73341cc363fa886b43a74cbaa3e597e3f28d7648816e7ea9dd7a80f7e}{A16G}} \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7}\label{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7}} 
+\index{MPU9250.h@{MPU9250.h}!GFS@{GFS}}
+\index{GFS@{GFS}!MPU9250.h@{MPU9250.h}}
+\doxysubsubsection{\texorpdfstring{GFS}{GFS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7}{G\+FS}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G250DPS@{G250DPS}!MPU9250.h@{MPU9250.h}}\index{MPU9250.h@{MPU9250.h}!G250DPS@{G250DPS}}}\mbox{\Hypertarget{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7a1f16243aa9da63315009d1693affb748}\label{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7a1f16243aa9da63315009d1693affb748}} 
+G250\+D\+PS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G500DPS@{G500DPS}!MPU9250.h@{MPU9250.h}}\index{MPU9250.h@{MPU9250.h}!G500DPS@{G500DPS}}}\mbox{\Hypertarget{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7a49ba76da08740551fcd1f4e7b71c06fa}\label{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7a49ba76da08740551fcd1f4e7b71c06fa}} 
+G500\+D\+PS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G1000DPS@{G1000DPS}!MPU9250.h@{MPU9250.h}}\index{MPU9250.h@{MPU9250.h}!G1000DPS@{G1000DPS}}}\mbox{\Hypertarget{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7a20564f9863f71578f0872e7891af0e37}\label{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7a20564f9863f71578f0872e7891af0e37}} 
+G1000\+D\+PS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G2000DPS@{G2000DPS}!MPU9250.h@{MPU9250.h}}\index{MPU9250.h@{MPU9250.h}!G2000DPS@{G2000DPS}}}\mbox{\Hypertarget{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7acff536125d3d3cffaa1d0b05276795f8}\label{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7acff536125d3d3cffaa1d0b05276795f8}} 
+G2000\+D\+PS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 12 of file M\+P\+U9250.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \{ G250DPS, G500DPS, G1000DPS, \mbox{\hyperlink{_m_p_u9250_8h_ac70d718161af4bd3297117bb62f4a7c7a1f16243aa9da63315009d1693affb748}{G2000DPS}} \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_m_p_u9250_8h_a895cd718f2d2994228da693f2ae11ad9}\label{_m_p_u9250_8h_a895cd718f2d2994228da693f2ae11ad9}} 
+\index{MPU9250.h@{MPU9250.h}!MFS@{MFS}}
+\index{MFS@{MFS}!MPU9250.h@{MPU9250.h}}
+\doxysubsubsection{\texorpdfstring{MFS}{MFS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_m_p_u9250_8h_a895cd718f2d2994228da693f2ae11ad9}{M\+FS}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M14BITS@{M14BITS}!MPU9250.h@{MPU9250.h}}\index{MPU9250.h@{MPU9250.h}!M14BITS@{M14BITS}}}\mbox{\Hypertarget{_m_p_u9250_8h_a895cd718f2d2994228da693f2ae11ad9a017a62d68c8b3bcef57d2db7a0fad4f1}\label{_m_p_u9250_8h_a895cd718f2d2994228da693f2ae11ad9a017a62d68c8b3bcef57d2db7a0fad4f1}} 
+M14\+B\+I\+TS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M16BITS@{M16BITS}!MPU9250.h@{MPU9250.h}}\index{MPU9250.h@{MPU9250.h}!M16BITS@{M16BITS}}}\mbox{\Hypertarget{_m_p_u9250_8h_a895cd718f2d2994228da693f2ae11ad9abc8fbff50c83fecf113f78af8e15fff0}\label{_m_p_u9250_8h_a895cd718f2d2994228da693f2ae11ad9abc8fbff50c83fecf113f78af8e15fff0}} 
+M16\+B\+I\+TS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 13 of file M\+P\+U9250.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13 \{ M14BITS, \mbox{\hyperlink{_m_p_u9250_8h_a895cd718f2d2994228da693f2ae11ad9a017a62d68c8b3bcef57d2db7a0fad4f1}{M16BITS}} \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_m_p_u9250_8h_a5e09287cabd8928b26535dd64db43101}\label{_m_p_u9250_8h_a5e09287cabd8928b26535dd64db43101}} 
+\index{MPU9250.h@{MPU9250.h}!MPU9250\_WHOAMI\_DEFAULT\_VALUE@{MPU9250\_WHOAMI\_DEFAULT\_VALUE}}
+\index{MPU9250\_WHOAMI\_DEFAULT\_VALUE@{MPU9250\_WHOAMI\_DEFAULT\_VALUE}!MPU9250.h@{MPU9250.h}}
+\doxysubsubsection{\texorpdfstring{MPU9250\_WHOAMI\_DEFAULT\_VALUE}{MPU9250\_WHOAMI\_DEFAULT\_VALUE}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t M\+P\+U9250\+\_\+\+W\+H\+O\+A\+M\+I\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE \{0x71\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 14 of file M\+P\+U9250.\+h.
+
+\mbox{\Hypertarget{_m_p_u9250_8h_a2a129f13e4ff2904c1ef22fdc3e50354}\label{_m_p_u9250_8h_a2a129f13e4ff2904c1ef22fdc3e50354}} 
+\index{MPU9250.h@{MPU9250.h}!MPU9255\_WHOAMI\_DEFAULT\_VALUE@{MPU9255\_WHOAMI\_DEFAULT\_VALUE}}
+\index{MPU9255\_WHOAMI\_DEFAULT\_VALUE@{MPU9255\_WHOAMI\_DEFAULT\_VALUE}!MPU9250.h@{MPU9250.h}}
+\doxysubsubsection{\texorpdfstring{MPU9255\_WHOAMI\_DEFAULT\_VALUE}{MPU9255\_WHOAMI\_DEFAULT\_VALUE}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t M\+P\+U9255\+\_\+\+W\+H\+O\+A\+M\+I\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE \{0x73\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 15 of file M\+P\+U9250.\+h.
+

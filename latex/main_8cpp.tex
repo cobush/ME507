@@ -1,0 +1,508 @@
+\hypertarget{main_8cpp}{}\doxysection{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Wire.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$M\+P\+U9250.\+h$>$}\newline
+{\ttfamily \#include $<$M\+P\+U9250\+Register\+Map.\+h$>$}\newline
+{\ttfamily \#include $<$Quaternion\+Filter.\+h$>$}\newline
+{\ttfamily \#include $<$Mini\+P\+I\+D.\+h$>$}\newline
+{\ttfamily \#include $<$Print\+Stream.\+h$>$}\newline
+{\ttfamily \#include $<$taskqueue.\+h$>$}\newline
+{\ttfamily \#include $<$taskshare.\+h$>$}\newline
+{\ttfamily \#include $<$baseshare.\+h$>$}\newline
+{\ttfamily \#include $<$task.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_share}{Share}}$<$ uint8\+\_\+t $>$ \mbox{\hyperlink{main_8cpp_a2311b9ba12d685c7541e6e72181abe22}{duty\+\_\+cycle}} ())
+\item 
+\mbox{\hyperlink{class_share}{Share}}$<$ bool $>$ \mbox{\hyperlink{main_8cpp_a95bba0dfb42eb4ba6f55a848d6c7494a}{direction}} ()
+\item 
+\mbox{\hyperlink{class_share}{Share}}$<$ float $>$ \mbox{\hyperlink{main_8cpp_af5da243f3a520af3fce183049d1dbb95}{cube\+\_\+angle}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_a744696245fb8a52769b82f2ec13d1426}{I\+MU}} (void $\ast$p\+\_\+params)
+\begin{DoxyCompactList}\small\item\em Task which checks button status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ad710dca1780aa9983f10930a9ba59a51}{P\+WM}} (void $\ast$p\+\_\+params)
+\begin{DoxyCompactList}\small\item\em Task which drives the motor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ae143a1d90381d73b379c76ed90887b98}{P\+ID}} (void $\ast$p\+\_\+params)
+\begin{DoxyCompactList}\small\item\em Task which runs the P\+ID controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Function that runs once to setup the balancing cube. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8cpp_a578d185264c65d40b6f792db8f64ec9b}{mtr\+\_\+duty}}
+\item 
+bool \mbox{\hyperlink{main_8cpp_a85f5acfe1f87313ef631bd00753b9e0b}{mtr\+\_\+dir}}
+\item 
+float \mbox{\hyperlink{main_8cpp_a8bcb795e5ca367f6d5e28b3c3c624e78}{cube\+\_\+ang}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{main_8cpp_a9585f7c65cacfde431ff801e5f68ea4b}{error}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8cpp_af482c76e289d5b6283b81d02bdd8fd52}{M\+A\+X\+\_\+\+D\+U\+TY}} = 255
+\item 
+double \mbox{\hyperlink{main_8cpp_a704835ed2343b7c8e5e0c7772da10738}{V\+E\+R\+T\+I\+C\+AL}} = 45
+\item 
+double \mbox{\hyperlink{main_8cpp_a8019aa9167c19c810aefa4cd5c0b0ab5}{P}} = 1
+\item 
+double \mbox{\hyperlink{main_8cpp_a07eb382f5743a852ab6f175e5db993f9}{I}} = 1
+\item 
+double \mbox{\hyperlink{main_8cpp_ad8657a5ec76e12f3066fb4b4eb75ace9}{D}} = 1
+\item 
+double \mbox{\hyperlink{main_8cpp_ae3520ebb3ff8d6feab3e6afb47ed4040}{F}} = 0
+\item 
+\mbox{\hyperlink{_m_p_u9250_8h_a84ebc4d832401299030f1c25c2c0b63a}{M\+P\+U9250}} \mbox{\hyperlink{main_8cpp_abc8c2c3bf79ea4a7b191df891c634df0}{M\+P\+U\+PU}}
+\item 
+\mbox{\hyperlink{class_mini_p_i_d}{Mini\+P\+ID}} \mbox{\hyperlink{main_8cpp_a23dfd324b46d6904ebd155da24195ffd}{P\+ID}} (\mbox{\hyperlink{main_8cpp_a8019aa9167c19c810aefa4cd5c0b0ab5}{P}}, \mbox{\hyperlink{main_8cpp_a07eb382f5743a852ab6f175e5db993f9}{I}}, \mbox{\hyperlink{main_8cpp_ad8657a5ec76e12f3066fb4b4eb75ace9}{D}}, \mbox{\hyperlink{main_8cpp_ae3520ebb3ff8d6feab3e6afb47ed4040}{F}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains a program that executes a series of tasks to balance a cube on one edge using an M\+P\+U9250 accelerometer and N\+U\+C\+L\+EO S\+T\+M32\+L476\+RG microcontroller. The P\+ID controller and M\+P\+U9250 driver are not the intellectual property of the group. We implemented a state machine using the driver for the M\+PU and P\+ID class to control the angle of the cube. See ownership for each file in the \mbox{\hyperlink{main_8cpp}{main.\+cpp}} file. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_af5da243f3a520af3fce183049d1dbb95}\label{main_8cpp_af5da243f3a520af3fce183049d1dbb95}} 
+\index{main.cpp@{main.cpp}!cube\_angle@{cube\_angle}}
+\index{cube\_angle@{cube\_angle}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cube\_angle()}{cube\_angle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_share}{Share}}$<$float$>$ cube\+\_\+angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube\+\_\+ang} & This share stores the current cube angle generated in \mbox{\hyperlink{main_8cpp_a744696245fb8a52769b82f2ec13d1426}{I\+M\+U()}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a95bba0dfb42eb4ba6f55a848d6c7494a}\label{main_8cpp_a95bba0dfb42eb4ba6f55a848d6c7494a}} 
+\index{main.cpp@{main.cpp}!direction@{direction}}
+\index{direction@{direction}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{direction()}{direction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_share}{Share}}$<$bool$>$ direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & This share stores the motor direction generated in \mbox{\hyperlink{main_8cpp_a23dfd324b46d6904ebd155da24195ffd}{P\+I\+D()}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a2311b9ba12d685c7541e6e72181abe22}\label{main_8cpp_a2311b9ba12d685c7541e6e72181abe22}} 
+\index{main.cpp@{main.cpp}!duty\_cycle@{duty\_cycle}}
+\index{duty\_cycle@{duty\_cycle}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{duty\_cycle()}{duty\_cycle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_share}{Share}}$<$uint8\+\_\+t$>$ duty\+\_\+cycle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em duty\+\_\+cycle} & This share stores the motor duty cycle generated in \mbox{\hyperlink{main_8cpp_a23dfd324b46d6904ebd155da24195ffd}{P\+I\+D()}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a744696245fb8a52769b82f2ec13d1426}\label{main_8cpp_a744696245fb8a52769b82f2ec13d1426}} 
+\index{main.cpp@{main.cpp}!IMU@{IMU}}
+\index{IMU@{IMU}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{IMU()}{IMU()}}
+{\footnotesize\ttfamily void I\+MU (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+Task which checks button status. 
+
+This task runs directly after the P\+WM task. This task updates the I\+MU data and then collects all three angles of rotation. The correct angle is selected and placed into the cube\+\_\+angle share. The P\+ID task is run directly after the shares are updated. 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to function parameters which we don\textquotesingle{}t use. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 124 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125 \{}
+\DoxyCodeLine{126 (void)p\_params;}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128   \textcolor{keywordflow}{for}(;;)\{}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \textcolor{comment}{/* collect the newest data*/}}
+\DoxyCodeLine{131     \mbox{\hyperlink{main_8cpp_abc8c2c3bf79ea4a7b191df891c634df0}{MPUPU}}.\mbox{\hyperlink{class_m_p_u9250___a4ad98b74ae7388b3384f35f23ae0614f}{update}}();}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \textcolor{comment}{/* calculate the updated angle data using these functions*/}}
+\DoxyCodeLine{134     \mbox{\hyperlink{main_8cpp_abc8c2c3bf79ea4a7b191df891c634df0}{MPUPU}}.\mbox{\hyperlink{class_m_p_u9250___a1aab76ec6eea93f1ccf738f0882fc946}{getRoll}}();}
+\DoxyCodeLine{135     \mbox{\hyperlink{main_8cpp_abc8c2c3bf79ea4a7b191df891c634df0}{MPUPU}}.\mbox{\hyperlink{class_m_p_u9250___a14b186c7f2395edf43392884f2df7168}{getPitch}}();}
+\DoxyCodeLine{136     \mbox{\hyperlink{main_8cpp_abc8c2c3bf79ea4a7b191df891c634df0}{MPUPU}}.\mbox{\hyperlink{class_m_p_u9250___aa63a64c8b97f85c34403298a3c39c02f}{getYaw}}();}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{comment}{/* not sure which angle we are looking for, but stuff it in the share and pass it on*/}}
+\DoxyCodeLine{139     \mbox{\hyperlink{main_8cpp_af5da243f3a520af3fce183049d1dbb95}{cube\_angle}}.put(\mbox{\hyperlink{main_8cpp_abc8c2c3bf79ea4a7b191df891c634df0}{MPUPU}}.\mbox{\hyperlink{class_m_p_u9250___aa63a64c8b97f85c34403298a3c39c02f}{getYaw}}());}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{comment}{/* Directly call PID task*/}}
+\DoxyCodeLine{142     \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8cpp_a23dfd324b46d6904ebd155da24195ffd}{PID}}();}
+\DoxyCodeLine{143   \}}
+\DoxyCodeLine{144 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main_8cpp_afe461d27b9c48d5921c00d521181f12f}} 
+\index{main.cpp@{main.cpp}!loop@{loop}}
+\index{loop@{loop}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 291 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{292 \{}
+\DoxyCodeLine{293   \textcolor{comment}{// put your main code here, to run repeatedly:}}
+\DoxyCodeLine{294 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_ae143a1d90381d73b379c76ed90887b98}\label{main_8cpp_ae143a1d90381d73b379c76ed90887b98}} 
+\index{main.cpp@{main.cpp}!PID@{PID}}
+\index{PID@{PID}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{PID()}{PID()}}
+{\footnotesize\ttfamily void P\+ID (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+Task which runs the P\+ID controller. 
+
+This task runs directly after the I\+MU task. Using the angle in the share as the current value, the P\+ID controller generates an output that is put into the mtr\+\_\+duty share. The direction is decided after and put into the direction share. Then the P\+WM task is called so the motor will receive the updated P\+WM signal. 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to function parameters which we don\textquotesingle{}t use. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 182 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{183 \{}
+\DoxyCodeLine{184 (void)p\_params;}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186   \textcolor{keywordflow}{for}(;;) \{}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     \textcolor{comment}{/* get the current angle of the cube*/}}
+\DoxyCodeLine{189     \mbox{\hyperlink{main_8cpp_af5da243f3a520af3fce183049d1dbb95}{cube\_angle}}.get(\mbox{\hyperlink{main_8cpp_a8bcb795e5ca367f6d5e28b3c3c624e78}{cube\_ang}});}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \textcolor{comment}{/* get the output of the PID and put it in the share*/}}
+\DoxyCodeLine{192     \mbox{\hyperlink{main_8cpp_a578d185264c65d40b6f792db8f64ec9b}{mtr\_duty}} = \mbox{\hyperlink{main_8cpp_a23dfd324b46d6904ebd155da24195ffd}{PID}}.\mbox{\hyperlink{class_mini_p_i_d_abf93d543fcbefa2528330be4331860d6}{getOutput}}(\mbox{\hyperlink{main_8cpp_a8bcb795e5ca367f6d5e28b3c3c624e78}{cube\_ang}}, \mbox{\hyperlink{main_8cpp_a704835ed2343b7c8e5e0c7772da10738}{VERTICAL}});}
+\DoxyCodeLine{193     \mbox{\hyperlink{main_8cpp_a2311b9ba12d685c7541e6e72181abe22}{duty\_cycle}}.put(\mbox{\hyperlink{main_8cpp_a578d185264c65d40b6f792db8f64ec9b}{mtr\_duty}});}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195     \mbox{\hyperlink{main_8cpp_a9585f7c65cacfde431ff801e5f68ea4b}{error}} = \mbox{\hyperlink{main_8cpp_a8bcb795e5ca367f6d5e28b3c3c624e78}{cube\_ang}} -\/ \mbox{\hyperlink{main_8cpp_a704835ed2343b7c8e5e0c7772da10738}{VERTICAL}};}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197       \textcolor{comment}{/* turn the motor in the correct direction to keep it balanced*/}}
+\DoxyCodeLine{198       \textcolor{keywordflow}{if} (\mbox{\hyperlink{main_8cpp_a9585f7c65cacfde431ff801e5f68ea4b}{error}} < 1)\{}
+\DoxyCodeLine{199         \mbox{\hyperlink{main_8cpp_a95bba0dfb42eb4ba6f55a848d6c7494a}{direction}}.put(1);}
+\DoxyCodeLine{200       \}}
+\DoxyCodeLine{201       \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{202         \mbox{\hyperlink{main_8cpp_a95bba0dfb42eb4ba6f55a848d6c7494a}{direction}}.put(0);}
+\DoxyCodeLine{203       \}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205       \textcolor{comment}{/* Directly call PWM task*/}}
+\DoxyCodeLine{206       \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8cpp_ad710dca1780aa9983f10930a9ba59a51}{PWM}}();}
+\DoxyCodeLine{207   \}}
+\DoxyCodeLine{208 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_ad710dca1780aa9983f10930a9ba59a51}\label{main_8cpp_ad710dca1780aa9983f10930a9ba59a51}} 
+\index{main.cpp@{main.cpp}!PWM@{PWM}}
+\index{PWM@{PWM}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{PWM()}{PWM()}}
+{\footnotesize\ttfamily void P\+WM (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+Task which drives the motor. 
+
+This task runs directly after the P\+ID outputs its updated P\+WM signal This task collects the values in the duty\+\_\+cycle and direction shares and outputs them to the motor. It then calls the I\+MU task to update the current cube angle and begin running again. 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to function parameters which we don\textquotesingle{}t use. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 153 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{154 \{}
+\DoxyCodeLine{155 (void)p\_params;}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157   \textcolor{keywordflow}{for}(;;)\{}
+\DoxyCodeLine{158     \textcolor{comment}{/* pull the duty cycle from the share*/}}
+\DoxyCodeLine{159     \mbox{\hyperlink{main_8cpp_a2311b9ba12d685c7541e6e72181abe22}{duty\_cycle}}.get(\mbox{\hyperlink{main_8cpp_a578d185264c65d40b6f792db8f64ec9b}{mtr\_duty}});}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \textcolor{comment}{/* pull the direction from the share*/}}
+\DoxyCodeLine{162     \mbox{\hyperlink{main_8cpp_a95bba0dfb42eb4ba6f55a848d6c7494a}{direction}}.get(\mbox{\hyperlink{main_8cpp_a85f5acfe1f87313ef631bd00753b9e0b}{mtr\_dir}});}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     \textcolor{comment}{/* turn the motor according to the pulled values*/}}
+\DoxyCodeLine{165     analogWrite(A3, \mbox{\hyperlink{main_8cpp_a578d185264c65d40b6f792db8f64ec9b}{mtr\_duty}});}
+\DoxyCodeLine{166     digitalWrite(A0, \mbox{\hyperlink{main_8cpp_a85f5acfe1f87313ef631bd00753b9e0b}{mtr\_dir}});}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     \textcolor{comment}{/* Directly call IMU task*/}}
+\DoxyCodeLine{169     \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8cpp_a744696245fb8a52769b82f2ec13d1426}{IMU}}();}
+\DoxyCodeLine{170   \}}
+\DoxyCodeLine{171 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{main.cpp@{main.cpp}!setup@{setup}}
+\index{setup@{setup}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function that runs once to setup the balancing cube. 
+
+This task runs once and does a number of things 1) Verifies the M\+PU is connected and the P\+ID is correctly set up. 2) Sets up motor direction and P\+WM pins 3) Defines the tasks used to control the cube
+
+If setup is completed succesfully, 5 messages will be printed. Make sure to read all messages before proceeding. 
+
+Definition at line 219 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{220 \{}
+\DoxyCodeLine{221     \textcolor{comment}{/* Start the serial port, wait a short time, then say hello. Use the}}
+\DoxyCodeLine{222 \textcolor{comment}{    non-\/RTOS delay() function because the RTOS hasn't been started yet*/}}
+\DoxyCodeLine{223     Serial.begin (115200);}
+\DoxyCodeLine{224     wire.begin();}
+\DoxyCodeLine{225     delay (2000);}
+\DoxyCodeLine{226     Serial << endl << endl << \textcolor{stringliteral}{"{}ME507 Cube Balance Intializing..."{}} << endl;}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228     \textcolor{comment}{/* Initialize MPU}}
+\DoxyCodeLine{229 \textcolor{comment}{     This will print a message displaying the MPU's memory address, verifying the MPU9250 is connected*/}}
+\DoxyCodeLine{230     \mbox{\hyperlink{main_8cpp_abc8c2c3bf79ea4a7b191df891c634df0}{MPUPU}}.\mbox{\hyperlink{class_m_p_u9250___ac6d7944f803785795d358773a068f8b3}{isConnectedMPU9250}}();}
+\DoxyCodeLine{231     \textcolor{comment}{/* This will store and print the MPU's bias*/}}
+\DoxyCodeLine{232     \mbox{\hyperlink{main_8cpp_abc8c2c3bf79ea4a7b191df891c634df0}{MPUPU}}.\mbox{\hyperlink{class_m_p_u9250___a5ecc43bd1b26cb73970aedc3d2f0fee6}{calibrateAccelGyro}}();}
+\DoxyCodeLine{233     \textcolor{comment}{/* This will set up the MPU and print a message confirming connection*/}}
+\DoxyCodeLine{234     \mbox{\hyperlink{main_8cpp_abc8c2c3bf79ea4a7b191df891c634df0}{MPUPU}}.\mbox{\hyperlink{class_m_p_u9250___a4ef66e5f46e0484a3cffbc10f88e5500}{setup}}(0x68);}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236     \textcolor{comment}{/* Initialize PID*/}}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238     \textcolor{comment}{/* Note: Can also saturate the Integral controller so it is not jerky at the beginning of operation}}
+\DoxyCodeLine{239 \textcolor{comment}{    // when the error is large.*/}}
+\DoxyCodeLine{240     }
+\DoxyCodeLine{241     \textcolor{comment}{/* Assign P,I,D, and F values to controller*/}}
+\DoxyCodeLine{242     \mbox{\hyperlink{main_8cpp_a23dfd324b46d6904ebd155da24195ffd}{PID}}.\mbox{\hyperlink{class_mini_p_i_d_ad4c90731f1377f49acd63c71f45fc227}{setPID}}(\mbox{\hyperlink{main_8cpp_a8019aa9167c19c810aefa4cd5c0b0ab5}{P}},\mbox{\hyperlink{main_8cpp_a07eb382f5743a852ab6f175e5db993f9}{I}},\mbox{\hyperlink{main_8cpp_ad8657a5ec76e12f3066fb4b4eb75ace9}{D}},\mbox{\hyperlink{main_8cpp_ae3520ebb3ff8d6feab3e6afb47ed4040}{F}});}
+\DoxyCodeLine{243     \textcolor{comment}{/* Assign the setpoint where the cube is standing*/}}
+\DoxyCodeLine{244     \mbox{\hyperlink{main_8cpp_a23dfd324b46d6904ebd155da24195ffd}{PID}}.\mbox{\hyperlink{class_mini_p_i_d_a9f72d3279bc279fa913a461f2db56da4}{setSetpoint}}(\mbox{\hyperlink{main_8cpp_a704835ed2343b7c8e5e0c7772da10738}{VERTICAL}});}
+\DoxyCodeLine{245     \textcolor{comment}{/* Saturate output to the maximum duty cycle*/}}
+\DoxyCodeLine{246     \mbox{\hyperlink{main_8cpp_a23dfd324b46d6904ebd155da24195ffd}{PID}}.\mbox{\hyperlink{class_mini_p_i_d_ab2c09775e410617f5279ae77fbfbb4be}{setOutputLimits}}(\mbox{\hyperlink{main_8cpp_af482c76e289d5b6283b81d02bdd8fd52}{MAX\_DUTY}});}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248   }
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250     \textcolor{comment}{/* Initialize the motor and IMU pins*/}}
+\DoxyCodeLine{251     \textcolor{comment}{/* Motor PWM pin*/}}
+\DoxyCodeLine{252     pinMode(A3, OUTPUT);}
+\DoxyCodeLine{253     \textcolor{comment}{/* Motor direction pin*/}}
+\DoxyCodeLine{254     pinMode(A0, OUTPUT);}
+\DoxyCodeLine{255   }
+\DoxyCodeLine{256     }
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \textcolor{comment}{/* Create the tasks as shown in the task diagram*/}}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261     xTaskCreate (\mbox{\hyperlink{main_8cpp_ad710dca1780aa9983f10930a9ba59a51}{PWM}},}
+\DoxyCodeLine{262                  \textcolor{stringliteral}{"{}PWM Output to Motor"{}},           \textcolor{comment}{// Name for printouts}}
+\DoxyCodeLine{263                  1536,                            \textcolor{comment}{// Stack size}}
+\DoxyCodeLine{264                  NULL,                            \textcolor{comment}{// Parameters for task fn.}}
+\DoxyCodeLine{265                  3,                               \textcolor{comment}{// Priority}}
+\DoxyCodeLine{266                  NULL);                           \textcolor{comment}{// Task handle}}
+\DoxyCodeLine{267     xTaskCreate (\mbox{\hyperlink{main_8cpp_a23dfd324b46d6904ebd155da24195ffd}{PID}},}
+\DoxyCodeLine{268                  \textcolor{stringliteral}{"{}PID Outputs PWM"{}},               \textcolor{comment}{// Name for printouts}}
+\DoxyCodeLine{269                  1536,                            \textcolor{comment}{// Stack size}}
+\DoxyCodeLine{270                  NULL,                            \textcolor{comment}{// Parameters for task fn.}}
+\DoxyCodeLine{271                  2,                               \textcolor{comment}{// Priority}}
+\DoxyCodeLine{272                  NULL);                           \textcolor{comment}{// Task handle}}
+\DoxyCodeLine{273                         \textcolor{comment}{// Task handle}}
+\DoxyCodeLine{274     xTaskCreate (\mbox{\hyperlink{main_8cpp_a744696245fb8a52769b82f2ec13d1426}{IMU}},}
+\DoxyCodeLine{275                  \textcolor{stringliteral}{"{}Collects cube rotation"{}},        \textcolor{comment}{// Name for printouts}}
+\DoxyCodeLine{276                  1536,                            \textcolor{comment}{// Stack size}}
+\DoxyCodeLine{277                  NULL,                            \textcolor{comment}{// Parameters for task fn.}}
+\DoxyCodeLine{278                  1,                               \textcolor{comment}{// Priority}}
+\DoxyCodeLine{279                  NULL);                           \textcolor{comment}{// Task handle           }}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281     \textcolor{comment}{/* If using an STM32, we need to call the scheduler startup function now;}}
+\DoxyCodeLine{282 \textcolor{comment}{       if using an ESP32, it has already been called for us*/}}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284 \textcolor{preprocessor}{    \#if (defined STM32L4xx || defined STM32F4xx)}}
+\DoxyCodeLine{285         vTaskStartScheduler ();}
+\DoxyCodeLine{286 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288     Serial << \textcolor{stringliteral}{"{}Completed Initialization, please place the cube in the starting position."{}} << endl;}
+\DoxyCodeLine{289 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_a8bcb795e5ca367f6d5e28b3c3c624e78}\label{main_8cpp_a8bcb795e5ca367f6d5e28b3c3c624e78}} 
+\index{main.cpp@{main.cpp}!cube\_ang@{cube\_ang}}
+\index{cube\_ang@{cube\_ang}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cube\_ang}{cube\_ang}}
+{\footnotesize\ttfamily float cube\+\_\+ang}
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube\+\_\+ang} & This variable is used to extract values from the cube\+\_\+angle share \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 64 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_ad8657a5ec76e12f3066fb4b4eb75ace9}\label{main_8cpp_ad8657a5ec76e12f3066fb4b4eb75ace9}} 
+\index{main.cpp@{main.cpp}!D@{D}}
+\index{D@{D}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{D}{D}}
+{\footnotesize\ttfamily double D = 1}
+
+
+\begin{DoxyParams}{Parameters}
+{\em D} & This variable is the derivative gain value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 91 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a9585f7c65cacfde431ff801e5f68ea4b}\label{main_8cpp_a9585f7c65cacfde431ff801e5f68ea4b}} 
+\index{main.cpp@{main.cpp}!error@{error}}
+\index{error@{error}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily uint16\+\_\+t error}
+
+
+\begin{DoxyParams}{Parameters}
+{\em mtr\+\_\+duty} & This variable serves as temporary storage for error value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 69 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_ae3520ebb3ff8d6feab3e6afb47ed4040}\label{main_8cpp_ae3520ebb3ff8d6feab3e6afb47ed4040}} 
+\index{main.cpp@{main.cpp}!F@{F}}
+\index{F@{F}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{F}{F}}
+{\footnotesize\ttfamily double F = 0}
+
+
+\begin{DoxyParams}{Parameters}
+{\em F} & This variable is the feed forward value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a07eb382f5743a852ab6f175e5db993f9}\label{main_8cpp_a07eb382f5743a852ab6f175e5db993f9}} 
+\index{main.cpp@{main.cpp}!I@{I}}
+\index{I@{I}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{I}{I}}
+{\footnotesize\ttfamily double I = 1}
+
+
+\begin{DoxyParams}{Parameters}
+{\em I} & This variable is the integral gain value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 87 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_af482c76e289d5b6283b81d02bdd8fd52}\label{main_8cpp_af482c76e289d5b6283b81d02bdd8fd52}} 
+\index{main.cpp@{main.cpp}!MAX\_DUTY@{MAX\_DUTY}}
+\index{MAX\_DUTY@{MAX\_DUTY}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_DUTY}{MAX\_DUTY}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+A\+X\+\_\+\+D\+U\+TY = 255}
+
+
+\begin{DoxyParams}{Parameters}
+{\em M\+A\+X\+\_\+\+D\+U\+TY} & This value is the maximum output for our P\+WM duty cycle \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_abc8c2c3bf79ea4a7b191df891c634df0}\label{main_8cpp_abc8c2c3bf79ea4a7b191df891c634df0}} 
+\index{main.cpp@{main.cpp}!MPUPU@{MPUPU}}
+\index{MPUPU@{MPUPU}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{MPUPU}{MPUPU}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_m_p_u9250_8h_a84ebc4d832401299030f1c25c2c0b63a}{M\+P\+U9250}} M\+P\+U\+PU}
+
+Instantiate a M\+P\+U9250 object with a ridiculous name 
+
+Definition at line 112 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a85f5acfe1f87313ef631bd00753b9e0b}\label{main_8cpp_a85f5acfe1f87313ef631bd00753b9e0b}} 
+\index{main.cpp@{main.cpp}!mtr\_dir@{mtr\_dir}}
+\index{mtr\_dir@{mtr\_dir}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{mtr\_dir}{mtr\_dir}}
+{\footnotesize\ttfamily bool mtr\+\_\+dir}
+
+
+\begin{DoxyParams}{Parameters}
+{\em mtr\+\_\+dir} & This variable is used toe extract values from the direction\+\_\+share \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 60 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a578d185264c65d40b6f792db8f64ec9b}\label{main_8cpp_a578d185264c65d40b6f792db8f64ec9b}} 
+\index{main.cpp@{main.cpp}!mtr\_duty@{mtr\_duty}}
+\index{mtr\_duty@{mtr\_duty}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{mtr\_duty}{mtr\_duty}}
+{\footnotesize\ttfamily uint8\+\_\+t mtr\+\_\+duty}
+
+
+\begin{DoxyParams}{Parameters}
+{\em mtr\+\_\+duty} & This variable is used to extract values from the motor\+\_\+duty share \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a8019aa9167c19c810aefa4cd5c0b0ab5}\label{main_8cpp_a8019aa9167c19c810aefa4cd5c0b0ab5}} 
+\index{main.cpp@{main.cpp}!P@{P}}
+\index{P@{P}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{P}{P}}
+{\footnotesize\ttfamily double P = 1}
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & This variable is the proportional gain value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 83 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a23dfd324b46d6904ebd155da24195ffd}\label{main_8cpp_a23dfd324b46d6904ebd155da24195ffd}} 
+\index{main.cpp@{main.cpp}!PID@{PID}}
+\index{PID@{PID}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{PID}{PID}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_mini_p_i_d}{Mini\+P\+ID}} P\+ID(\mbox{\hyperlink{main_8cpp_a8019aa9167c19c810aefa4cd5c0b0ab5}{P}}, \mbox{\hyperlink{main_8cpp_a07eb382f5743a852ab6f175e5db993f9}{I}}, \mbox{\hyperlink{main_8cpp_ad8657a5ec76e12f3066fb4b4eb75ace9}{D}}, \mbox{\hyperlink{main_8cpp_ae3520ebb3ff8d6feab3e6afb47ed4040}{F}})}
+
+Instantiate \mbox{\hyperlink{class_mini_p_i_d}{Mini\+P\+ID}} object and set Kp, Ki, Kd, and feed forward, respectively \mbox{\Hypertarget{main_8cpp_a704835ed2343b7c8e5e0c7772da10738}\label{main_8cpp_a704835ed2343b7c8e5e0c7772da10738}} 
+\index{main.cpp@{main.cpp}!VERTICAL@{VERTICAL}}
+\index{VERTICAL@{VERTICAL}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{VERTICAL}{VERTICAL}}
+{\footnotesize\ttfamily double V\+E\+R\+T\+I\+C\+AL = 45}
+
+
+\begin{DoxyParams}{Parameters}
+{\em V\+E\+R\+T\+I\+C\+AL} & This value is the target for our controller \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 79 of file main.\+cpp.
+

@@ -1,0 +1,303 @@
+\hypertarget{main__drive_8cpp}{}\doxysection{main\+\_\+drive.\+cpp File Reference}
+\label{main__drive_8cpp}\index{main\_drive.cpp@{main\_drive.cpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Print\+Stream.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}taskshare.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{main__drive_8cpp_a83e2559905ce06de071389dfb6ea3b97}{parse\+Int\+With\+Echo}} (Stream \&stream)
+\begin{DoxyCompactList}\small\item\em Read an integer from a serial device, echoing input and blocking. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main__drive_8cpp_aedae232608142fbbd4ece4cfe363e74c}{task\+\_\+sim}} (void $\ast$p\+\_\+params)
+\begin{DoxyCompactList}\small\item\em Task which interacts with a user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main__drive_8cpp_a5d113b2e78f295f62b2c160ebb5d775e}{task\+\_\+enc}} (void $\ast$p\+\_\+params)
+\begin{DoxyCompactList}\small\item\em Task which interacts with a user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main__drive_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Arduino setup function which runs once at program startup. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main__drive_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Arduino\textquotesingle{}s low-\/priority loop function, which we don\textquotesingle{}t use. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_share}{Share}}$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{main__drive_8cpp_a0d755a47b31dfe34438194d3286599cc}{duty\+\_\+cycle}} (\char`\"{}Power\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main__drive_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main__drive_8cpp_afe461d27b9c48d5921c00d521181f12f}} 
+\index{main\_drive.cpp@{main\_drive.cpp}!loop@{loop}}
+\index{loop@{loop}!main\_drive.cpp@{main\_drive.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Arduino\textquotesingle{}s low-\/priority loop function, which we don\textquotesingle{}t use. 
+
+A non-\/\+R\+T\+OS Arduino program runs all of its continuously running code in this function after {\ttfamily \mbox{\hyperlink{main__drive_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup()}}} has finished. When using Free\+R\+T\+OS, {\ttfamily \mbox{\hyperlink{main__drive_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop()}}} implements a low priority task on most microcontrollers, and crashes on some others, so we\textquotesingle{}ll not use it. 
+
+Definition at line 266 of file main\+\_\+drive.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{267 \{}
+\DoxyCodeLine{268 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main__drive_8cpp_a83e2559905ce06de071389dfb6ea3b97}\label{main__drive_8cpp_a83e2559905ce06de071389dfb6ea3b97}} 
+\index{main\_drive.cpp@{main\_drive.cpp}!parseIntWithEcho@{parseIntWithEcho}}
+\index{parseIntWithEcho@{parseIntWithEcho}!main\_drive.cpp@{main\_drive.cpp}}
+\doxysubsubsection{\texorpdfstring{parseIntWithEcho()}{parseIntWithEcho()}}
+{\footnotesize\ttfamily int32\+\_\+t parse\+Int\+With\+Echo (\begin{DoxyParamCaption}\item[{Stream \&}]{stream }\end{DoxyParamCaption})}
+
+
+
+Read an integer from a serial device, echoing input and blocking. 
+
+This function reads an integer which is typed by a user into a serial device. It uses the Arduino function {\ttfamily read\+Bytes()}, which blocks the task which calls this function until a character is read. When any character is received, it is echoed through the serial port so the user can see what was typed. Only decimal integers are supported; negative integers beginning with a single {\ttfamily -\/} sign or positive ones with a {\ttfamily +} will work.
+
+{\bfseries{N\+O\+TE\+:}} The serial device must have its timeout set to a very long time, or this function will malfunction. A recommended call\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Serial.setTimeout (0xFFFFFFFF);}
+\end{DoxyCode}
+ Assuming that the serial port named {\ttfamily Serial} is being used. 
+\begin{DoxyParams}{Parameters}
+{\em stream} & The serial device such as {\ttfamily Serial} used to communicate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file main\+\_\+drive.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46 \{}
+\DoxyCodeLine{47     \textcolor{keyword}{const} uint8\_t MAX\_INT\_DIGITS = 24;        \textcolor{comment}{// More than a 64-\/bit integer has}}
+\DoxyCodeLine{48     \textcolor{keywordtype}{char} ch\_in = 0;                           \textcolor{comment}{// One character from the buffer}}
+\DoxyCodeLine{49     \textcolor{keywordtype}{char} in\_buf[MAX\_INT\_DIGITS];              \textcolor{comment}{// Character buffer for input}}
+\DoxyCodeLine{50     uint8\_t count = 0;                        \textcolor{comment}{// Counts characters received}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{comment}{// Read until return is received or too many characters have been read.}}
+\DoxyCodeLine{53     \textcolor{comment}{// The readBytes function blocks while waiting for characters}}
+\DoxyCodeLine{54     \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56         stream.readBytes (\&ch\_in, 1);         \textcolor{comment}{// Read (and wait for) characters}}
+\DoxyCodeLine{57         in\_buf[count++] = ch\_in;}
+\DoxyCodeLine{58         stream.print (ch\_in);                 \textcolor{comment}{// Echo the character}}
+\DoxyCodeLine{59         \textcolor{keywordflow}{if} (ch\_in == \textcolor{charliteral}{'\(\backslash\)b'} \&\& count)           \textcolor{comment}{// If a backspace, back up one}}
+\DoxyCodeLine{60         \{                                     \textcolor{comment}{// character and try again}}
+\DoxyCodeLine{61             count -\/= 2;}
+\DoxyCodeLine{62         \}}
+\DoxyCodeLine{63         \textcolor{keywordflow}{if} (ch\_in == \textcolor{charliteral}{'\(\backslash\)n'} || count >= (MAX\_INT\_DIGITS -\/ 1))}
+\DoxyCodeLine{64         \{}
+\DoxyCodeLine{65             in\_buf[count] = \textcolor{charliteral}{'\(\backslash\)0'};             \textcolor{comment}{// String must have a \(\backslash\)0 at end}}
+\DoxyCodeLine{66             \textcolor{keywordflow}{return} atoi (in\_buf);}
+\DoxyCodeLine{67         \}}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main__drive_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main__drive_8cpp_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{main\_drive.cpp@{main\_drive.cpp}!setup@{setup}}
+\index{setup@{setup}!main\_drive.cpp@{main\_drive.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Arduino setup function which runs once at program startup. 
+
+This function sets up a serial port for communication and creates the tasks which will be run. It also initializes pin A3 on the S\+T\+M32\+L476\+RG microcontroller as an output pin. 
+
+Definition at line 216 of file main\+\_\+drive.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{217 \{}
+\DoxyCodeLine{218     \textcolor{comment}{// Start the serial port, wait a short time, then say hello. Use the}}
+\DoxyCodeLine{219     \textcolor{comment}{// non-\/RTOS delay() function because the RTOS hasn't been started yet}}
+\DoxyCodeLine{220     Serial.begin (115200);}
+\DoxyCodeLine{221     delay (2000);}
+\DoxyCodeLine{222     Serial << endl << endl << \textcolor{stringliteral}{"{}ME507 UI Lab Starting Program"{}} << endl;}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224     \textcolor{comment}{// Initialize pin A3 as an output pin}}
+\DoxyCodeLine{225     pinMode(A3, OUTPUT);}
+\DoxyCodeLine{226     pinMode(D2, INPUT\_PULLDOWN);}
+\DoxyCodeLine{227     pinMode(D4, INPUT\_PULLDOWN);}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230     \textcolor{comment}{// Create a task which prints a slightly disagreeable message}}
+\DoxyCodeLine{231     \textcolor{comment}{/*xTaskCreate (task\_ui,}}
+\DoxyCodeLine{232 \textcolor{comment}{                 "{}User Int."{},                     // Name for printouts}}
+\DoxyCodeLine{233 \textcolor{comment}{                 1536,                            // Stack size}}
+\DoxyCodeLine{234 \textcolor{comment}{                 NULL,                            // Parameters for task fn.}}
+\DoxyCodeLine{235 \textcolor{comment}{                 1,                               // Priority}}
+\DoxyCodeLine{236 \textcolor{comment}{                 NULL);                           // Task handle*/}}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238     \textcolor{comment}{// Create a task which prints a more agreeable message}}
+\DoxyCodeLine{239     xTaskCreate (\mbox{\hyperlink{main__drive_8cpp_aedae232608142fbbd4ece4cfe363e74c}{task\_sim}},}
+\DoxyCodeLine{240                  \textcolor{stringliteral}{"{}Simul."{}},}
+\DoxyCodeLine{241                  1024,                            \textcolor{comment}{// Stack size}}
+\DoxyCodeLine{242                  NULL,}
+\DoxyCodeLine{243                  4,                               \textcolor{comment}{// Priority}}
+\DoxyCodeLine{244                  NULL);}
+\DoxyCodeLine{245     \textcolor{comment}{// Create a task which prints the current encoder position}}
+\DoxyCodeLine{246     xTaskCreate (\mbox{\hyperlink{main__drive_8cpp_a5d113b2e78f295f62b2c160ebb5d775e}{task\_enc}},}
+\DoxyCodeLine{247                  \textcolor{stringliteral}{"{}Simul."{}},}
+\DoxyCodeLine{248                  1024,                            \textcolor{comment}{// Stack size}}
+\DoxyCodeLine{249                  NULL,}
+\DoxyCodeLine{250                  4,                               \textcolor{comment}{// Priority}}
+\DoxyCodeLine{251                  NULL);}
+\DoxyCodeLine{252     \textcolor{comment}{// If using an STM32, we need to call the scheduler startup function now;}}
+\DoxyCodeLine{253     \textcolor{comment}{// if using an ESP32, it has already been called for us}}
+\DoxyCodeLine{254 \textcolor{preprocessor}{    \#if (defined STM32L4xx || defined STM32F4xx)}}
+\DoxyCodeLine{255         vTaskStartScheduler ();}
+\DoxyCodeLine{256 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{257 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main__drive_8cpp_a5d113b2e78f295f62b2c160ebb5d775e}\label{main__drive_8cpp_a5d113b2e78f295f62b2c160ebb5d775e}} 
+\index{main\_drive.cpp@{main\_drive.cpp}!task\_enc@{task\_enc}}
+\index{task\_enc@{task\_enc}!main\_drive.cpp@{main\_drive.cpp}}
+\doxysubsubsection{\texorpdfstring{task\_enc()}{task\_enc()}}
+{\footnotesize\ttfamily void task\+\_\+enc (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+Task which interacts with a user. 
+
+This task demonstrates how to use a Free\+R\+T\+OS task for interacting with some user while other more important things are going on. In other words, this task prompts the user to input a value for the duty cycle of a \char`\"{}motor\char`\"{}. This value is then put into the share duty\+\_\+cycle to be used in the task task\+\_\+sim 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to function parameters which we don\textquotesingle{}t use. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 161 of file main\+\_\+drive.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{162 \{}
+\DoxyCodeLine{163     (void)p\_params;            \textcolor{comment}{// Does nothing but shut up a compiler warning}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165     \textcolor{comment}{// Set the timeout for reading from the serial port to the maximum}}
+\DoxyCodeLine{166     \textcolor{comment}{// possible value, essentially forever for a real-\/time control program}}
+\DoxyCodeLine{167     Serial.setTimeout (0xFFFFFFFF);}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169     \textcolor{comment}{// EncoderValues are bools}}
+\DoxyCodeLine{170     \textcolor{keywordtype}{bool} EncoderValueA;}
+\DoxyCodeLine{171     \textcolor{keywordtype}{bool} EncoderValueB;}
+\DoxyCodeLine{172     uint32\_t EncoderPosition;}
+\DoxyCodeLine{173     uint32\_t LastEncoderPosition;}
+\DoxyCodeLine{174     uint32\_t EncoderSpeed;}
+\DoxyCodeLine{175     uint32\_t LastTime;}
+\DoxyCodeLine{176     \textcolor{comment}{// Resets the EncoderPosition to zero}}
+\DoxyCodeLine{177     EncoderPosition = 0;}
+\DoxyCodeLine{178     LastEncoderPosition = 0;}
+\DoxyCodeLine{179     \textcolor{comment}{// The task's infinite loop goes here}}
+\DoxyCodeLine{180     \textcolor{keywordflow}{for} (;;)}
+\DoxyCodeLine{181     \{}
+\DoxyCodeLine{182     \textcolor{comment}{// Converts the encoder readings into encoder position}}
+\DoxyCodeLine{183     \textcolor{keywordflow}{if} (digitalRead(D2)) \{}
+\DoxyCodeLine{184         \textcolor{keywordflow}{if} (digitalRead(D4) \&\& not EncoderValueB) \{ }
+\DoxyCodeLine{185             EncoderPosition += 1;}
+\DoxyCodeLine{186         \}}
+\DoxyCodeLine{187         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (not digitalRead(D4) \&\& EncoderValueB) \{}
+\DoxyCodeLine{188             EncoderPosition -\/= 1;}
+\DoxyCodeLine{189         \}}
+\DoxyCodeLine{190     \}}
+\DoxyCodeLine{191     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (digitalRead(D2)) \{}
+\DoxyCodeLine{192         \textcolor{keywordflow}{if} (not digitalRead(D4) \&\& EncoderValueB) \{ }
+\DoxyCodeLine{193             EncoderPosition += 1;}
+\DoxyCodeLine{194         \}}
+\DoxyCodeLine{195         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (digitalRead(D4) \&\& not EncoderValueB) \{}
+\DoxyCodeLine{196             EncoderPosition -\/= 1;}
+\DoxyCodeLine{197         \}}
+\DoxyCodeLine{198     \}}
+\DoxyCodeLine{199     \textcolor{comment}{// Calculate the encoder speed}}
+\DoxyCodeLine{200     EncoderSpeed = (EncoderPosition -\/ LastEncoderPosition)/(micros() -\/ LastTime);}
+\DoxyCodeLine{201     \textcolor{comment}{// Captures the new encoder readings}}
+\DoxyCodeLine{202     EncoderValueA = digitalRead(D2);}
+\DoxyCodeLine{203     EncoderValueB = digitalRead(D4);  }
+\DoxyCodeLine{204     \textcolor{comment}{// Sets the LastEncoderPosition}}
+\DoxyCodeLine{205     LastEncoderPosition = EncoderPosition;}
+\DoxyCodeLine{206     \textcolor{comment}{// Prints the current encoder readings and position}}
+\DoxyCodeLine{207     Serial << EncoderValueA << \textcolor{stringliteral}{"{}|"{}} <<EncoderValueB << \textcolor{stringliteral}{"{}|"{}} <<EncoderPosition << \textcolor{stringliteral}{"{}|"{}} << endl;  }
+\DoxyCodeLine{208     \}}
+\DoxyCodeLine{209 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main__drive_8cpp_aedae232608142fbbd4ece4cfe363e74c}\label{main__drive_8cpp_aedae232608142fbbd4ece4cfe363e74c}} 
+\index{main\_drive.cpp@{main\_drive.cpp}!task\_sim@{task\_sim}}
+\index{task\_sim@{task\_sim}!main\_drive.cpp@{main\_drive.cpp}}
+\doxysubsubsection{\texorpdfstring{task\_sim()}{task\_sim()}}
+{\footnotesize\ttfamily void task\+\_\+sim (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+Task which interacts with a user. 
+
+This task demonstrates how to use a Free\+R\+T\+OS task for interacting with some user while other more important things are going on. In other words, this task prompts the user to input a value for the duty cycle of a \char`\"{}motor\char`\"{}. This value is then put into the share duty\+\_\+cycle to be used in the task task\+\_\+sim 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to function parameters which we don\textquotesingle{}t use.\\
+\hline
+\end{DoxyParams}
+Task which simulates a motor.  This task runs at precise intervals using {\ttfamily v\+Task\+Delay\+Until()} and sort of simulates a motor whose duty cycle is controlled by a power level sent from the UI task. The simulation is just a very simple implementation of a first-\/order filter. 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+params} & A pointer to function parameters which we don\textquotesingle{}t use. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 114 of file main\+\_\+drive.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115 \{}
+\DoxyCodeLine{116     (void)p\_params;                           \textcolor{comment}{// Shuts up a compiler warning}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \textcolor{comment}{// Set up the variables of the simulation here}}
+\DoxyCodeLine{119     \textcolor{keyword}{const} TickType\_t sim\_period = 50;         \textcolor{comment}{// RTOS ticks (ms) between runs}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{comment}{// Initialise the xLastWakeTime variable with the current time.}}
+\DoxyCodeLine{122     \textcolor{comment}{// It is used to run the task at precise intervals in the for loop below.}}
+\DoxyCodeLine{123     TickType\_t xLastWakeTime = xTaskGetTickCount();}
+\DoxyCodeLine{124     }
+\DoxyCodeLine{125     \textcolor{comment}{// shared\_power is a 32 bit unsigned integer. Initialize the variable shared\_power}}
+\DoxyCodeLine{126     \textcolor{comment}{// to 0.}}
+\DoxyCodeLine{127     uint32\_t shared\_power = 0;}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     \textcolor{keywordflow}{for} (;;)}
+\DoxyCodeLine{130     \{}
+\DoxyCodeLine{131       \textcolor{comment}{// Collect the value placed in share duty\_cycle}}
+\DoxyCodeLine{132       \mbox{\hyperlink{main__drive_8cpp_a0d755a47b31dfe34438194d3286599cc}{duty\_cycle}}.get (shared\_power);}
+\DoxyCodeLine{133       }
+\DoxyCodeLine{134       \textcolor{comment}{// sim\_A is a floating point number}}
+\DoxyCodeLine{135       \textcolor{keywordtype}{float} sim\_A = .99; }
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137       \textcolor{comment}{// sim\_B is also a floating point number}}
+\DoxyCodeLine{138       \textcolor{keywordtype}{float} sim\_B = 1 -\/ sim\_A; }
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140       \textcolor{comment}{// sim\_speed updates as the speed of the "{}motor"{} increases}}
+\DoxyCodeLine{141       \textcolor{keywordtype}{float} sim\_speed = sim\_speed * sim\_A + shared\_power * sim\_B;}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143       \textcolor{comment}{// write the appropriate PWM signal to pin A3 depending on input}}
+\DoxyCodeLine{144       analogWrite(A3, sim\_speed); }
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146         \textcolor{comment}{// This type of delay waits until it has been the given number of RTOS}}
+\DoxyCodeLine{147         \textcolor{comment}{// ticks since the task previously began running. This prevents timing}}
+\DoxyCodeLine{148         \textcolor{comment}{// inaccuracy due to not accounting for how long the task took to run}}
+\DoxyCodeLine{149       vTaskDelayUntil (\&xLastWakeTime, sim\_period);}
+\DoxyCodeLine{150     \}}
+\DoxyCodeLine{151 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main__drive_8cpp_a0d755a47b31dfe34438194d3286599cc}\label{main__drive_8cpp_a0d755a47b31dfe34438194d3286599cc}} 
+\index{main\_drive.cpp@{main\_drive.cpp}!duty\_cycle@{duty\_cycle}}
+\index{duty\_cycle@{duty\_cycle}!main\_drive.cpp@{main\_drive.cpp}}
+\doxysubsubsection{\texorpdfstring{duty\_cycle}{duty\_cycle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_share}{Share}}$<$uint32\+\_\+t$>$ duty\+\_\+cycle(\char`\"{}Power\char`\"{})}
+

@@ -1,0 +1,65 @@
+\hypertarget{taskshare_8h}{}\doxysection{taskshare.\+h File Reference}
+\label{taskshare_8h}\index{taskshare.h@{taskshare.h}}
+
+
+Data which can be shared between tasks in a thread-\/safe manner.  
+
+
+{\ttfamily \#include \char`\"{}baseshare.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_share}{Share$<$ Data\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em Class for data to be shared in a thread-\/safe manner between tasks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{taskshare_8h_a4bf01a1d5f343d5dd7b4cb8c620e3657}{S\+H\+A\+R\+E\+\_\+\+E\+N\+T\+E\+R\+\_\+\+C\+R\+I\+T\+I\+C\+AL}}(x)~port\+E\+N\+T\+E\+R\+\_\+\+C\+R\+I\+T\+I\+C\+AL()
+\item 
+\#define \mbox{\hyperlink{taskshare_8h_acb0ebbc2e566fa7c247a8743659f41c0}{S\+H\+A\+R\+E\+\_\+\+E\+X\+I\+T\+\_\+\+C\+R\+I\+T\+I\+C\+AL}}(x)~port\+E\+X\+I\+T\+\_\+\+C\+R\+I\+T\+I\+C\+AL()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Data which can be shared between tasks in a thread-\/safe manner. 
+
+This file contains a template class for data which is to be shared between tasks. The data must be protected against damage due to context switches, so it is protected by a mutex or by causing transfers to take place inside critical sections of code which are not interrupted.
+
+\begin{DoxyDate}{Date}
+2012-\/Oct-\/29 J\+RR Original file 
+
+2014-\/Aug-\/26 J\+RR Changed file names, class name to {\ttfamily Task\+Share}, removed unused version that uses semaphores, renamed {\ttfamily put()} and {\ttfamily get()} 
+
+2014-\/Oct-\/18 J\+RR Added linked list of all shares for tracking and debugging 
+
+2020-\/Oct-\/10 J\+RR Made compatible with Arduino, class name to {\ttfamily \mbox{\hyperlink{class_share}{Share}}} 
+
+2020-\/Nov-\/14 J\+RR Added new-\/\+E\+S\+P32 compatible {\ttfamily S\+H\+A\+R\+E\+\_\+}...\+\_\+\+C\+R\+I\+T\+I\+C\+A\+L(x)
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+This file is copyright 2014 -- 2019 by JR Ridgely and released under the Lesser G\+NU Public License, version 2. It intended for educational use only, but its use is not limited thereto. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{taskshare_8h_a4bf01a1d5f343d5dd7b4cb8c620e3657}\label{taskshare_8h_a4bf01a1d5f343d5dd7b4cb8c620e3657}} 
+\index{taskshare.h@{taskshare.h}!SHARE\_ENTER\_CRITICAL@{SHARE\_ENTER\_CRITICAL}}
+\index{SHARE\_ENTER\_CRITICAL@{SHARE\_ENTER\_CRITICAL}!taskshare.h@{taskshare.h}}
+\doxysubsubsection{\texorpdfstring{SHARE\_ENTER\_CRITICAL}{SHARE\_ENTER\_CRITICAL}}
+{\footnotesize\ttfamily \#define S\+H\+A\+R\+E\+\_\+\+E\+N\+T\+E\+R\+\_\+\+C\+R\+I\+T\+I\+C\+AL(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~port\+E\+N\+T\+E\+R\+\_\+\+C\+R\+I\+T\+I\+C\+AL()}
+
+
+
+Definition at line 49 of file taskshare.\+h.
+
+\mbox{\Hypertarget{taskshare_8h_acb0ebbc2e566fa7c247a8743659f41c0}\label{taskshare_8h_acb0ebbc2e566fa7c247a8743659f41c0}} 
+\index{taskshare.h@{taskshare.h}!SHARE\_EXIT\_CRITICAL@{SHARE\_EXIT\_CRITICAL}}
+\index{SHARE\_EXIT\_CRITICAL@{SHARE\_EXIT\_CRITICAL}!taskshare.h@{taskshare.h}}
+\doxysubsubsection{\texorpdfstring{SHARE\_EXIT\_CRITICAL}{SHARE\_EXIT\_CRITICAL}}
+{\footnotesize\ttfamily \#define S\+H\+A\+R\+E\+\_\+\+E\+X\+I\+T\+\_\+\+C\+R\+I\+T\+I\+C\+AL(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~port\+E\+X\+I\+T\+\_\+\+C\+R\+I\+T\+I\+C\+AL()}
+
+
+
+Definition at line 50 of file taskshare.\+h.
+

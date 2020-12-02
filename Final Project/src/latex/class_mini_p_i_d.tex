@@ -1,0 +1,993 @@
+\hypertarget{class_mini_p_i_d}{}\doxysection{Mini\+P\+ID Class Reference}
+\label{class_mini_p_i_d}\index{MiniPID@{MiniPID}}
+
+
+{\ttfamily \#include $<$Mini\+P\+I\+D.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mini_p_i_d_a1ca9ca279ee7fc3494089e3350819b2d}{Mini\+P\+ID}} (double, double, double)
+\item 
+\mbox{\hyperlink{class_mini_p_i_d_ad9caadb549e48f74771cd6be2b481e70}{Mini\+P\+ID}} (double, double, double, double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_af692b99cdc9da5cc6dac7b8fa9f88c8e}{setP}} (double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_a58ca3ed0ee056a4c8f08c0515b21d669}{setI}} (double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_a74440a2cfa3fdcaefa4e6c673cead085}{setD}} (double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_aea7a19ec642d405aff073565e9611ece}{setF}} (double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_ad4c90731f1377f49acd63c71f45fc227}{set\+P\+ID}} (double, double, double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_ac74a0ba95868898e79a6a65beafd96d2}{set\+P\+ID}} (double, double, double, double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_a328743fc2b592da72f03b7042c0e82de}{set\+Max\+I\+Output}} (double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_ab2c09775e410617f5279ae77fbfbb4be}{set\+Output\+Limits}} (double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_a46adb5f910889576580e4db967197f8d}{set\+Output\+Limits}} (double, double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_ac002a67ec69e3d7368ada040761daf02}{set\+Direction}} (bool)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_a9f72d3279bc279fa913a461f2db56da4}{set\+Setpoint}} (double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_a6e0d9e706c95119bdab25e11e9d5b34b}{reset}} ()
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_ab687498b721436b48d040c2cb3508517}{set\+Output\+Ramp\+Rate}} (double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_af81e04003fa1cbf5034bf725902a05ee}{set\+Setpoint\+Range}} (double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_a4f351bb373a9c83588ff9af571b94471}{set\+Output\+Filter}} (double)
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_abf93d543fcbefa2528330be4331860d6}{get\+Output}} ()
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_ad755c883404fd3a68a55f24630ec6262}{get\+Output}} (double)
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_aa411c4f0bfb803723e6afa28597f1fe5}{get\+Output}} (double, double)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_a9d489ef267d7c5ea5bfb35757089b30c}{clamp}} (double, double, double)
+\item 
+bool \mbox{\hyperlink{class_mini_p_i_d_a7d2b5c49fd21877b5b9201281b8ce056}{bounded}} (double, double, double)
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_a8de15f8e2df5822703baaa5afba2e4f8}{check\+Signs}} ()
+\item 
+void \mbox{\hyperlink{class_mini_p_i_d_ab627fce64ff55aad5f801ab7b5fdcca6}{init}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}{P}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}{D}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_a7f9e2443d539634e1d5a4f53e1406697}{F}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}{max\+I\+Output}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_abde3b9126780f67b9176a26eac5cbf86}{max\+Error}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}{error\+Sum}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_a03a66768b6437135054fc0c2272d4225}{max\+Output}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_a123be1f18fc1c3cc7f6b5c890d33aae4}{min\+Output}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}{setpoint}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_a64068c5ac32d5f76135c9b29f367a954}{last\+Actual}}
+\item 
+bool \mbox{\hyperlink{class_mini_p_i_d_ab2e8805c2cadebf2a138229c321f2e76}{first\+Run}}
+\item 
+bool \mbox{\hyperlink{class_mini_p_i_d_ae165f7e6d27f6164d99481a53335b4a4}{reversed}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_a4906d576af316a1f103e5c0dab901acb}{output\+Ramp\+Rate}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_abaa6fe2cd66e8165015b61df3ee92d5c}{last\+Output}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_a5becd8089bdae07ab6b2f1afc21dc510}{output\+Filter}}
+\item 
+double \mbox{\hyperlink{class_mini_p_i_d_a3031543f427e6a6c616d470d8ac854ed}{setpoint\+Range}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 4 of file Mini\+P\+I\+D.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_mini_p_i_d_a1ca9ca279ee7fc3494089e3350819b2d}\label{class_mini_p_i_d_a1ca9ca279ee7fc3494089e3350819b2d}} 
+\index{MiniPID@{MiniPID}!MiniPID@{MiniPID}}
+\index{MiniPID@{MiniPID}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{MiniPID()}{MiniPID()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Mini\+P\+I\+D\+::\+Mini\+P\+ID (\begin{DoxyParamCaption}\item[{double}]{p,  }\item[{double}]{i,  }\item[{double}]{d }\end{DoxyParamCaption})}
+
+Small, easy to use P\+ID implementation with advanced controller capability.~\newline
+ Minimal usage\+:~\newline
+ set\+P\+I\+D(p,i,d); ~\newline
+ ...looping code...\{ ~\newline
+ output=get\+Output(sensorvalue,target); ~\newline
+ \}
+
+\begin{DoxySeeAlso}{See also}
+\href{http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-direction/improving-the-beginners-pid-introduction}{\texttt{ http\+://brettbeauregard.\+com/blog/2011/04/improving-\/the-\/beginners-\/pid-\/direction/improving-\/the-\/beginners-\/pid-\/introduction}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 17 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                             \{}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_mini_p_i_d_ab627fce64ff55aad5f801ab7b5fdcca6}{init}}();}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}{P}}=p; \mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}=i; \mbox{\hyperlink{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}{D}}=d;}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_ad9caadb549e48f74771cd6be2b481e70}\label{class_mini_p_i_d_ad9caadb549e48f74771cd6be2b481e70}} 
+\index{MiniPID@{MiniPID}!MiniPID@{MiniPID}}
+\index{MiniPID@{MiniPID}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{MiniPID()}{MiniPID()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Mini\+P\+I\+D\+::\+Mini\+P\+ID (\begin{DoxyParamCaption}\item[{double}]{p,  }\item[{double}]{i,  }\item[{double}]{d,  }\item[{double}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line 21 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21                                                       \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_mini_p_i_d_ab627fce64ff55aad5f801ab7b5fdcca6}{init}}();}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}{P}}=p; \mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}=i; \mbox{\hyperlink{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}{D}}=d; \mbox{\hyperlink{class_mini_p_i_d_a7f9e2443d539634e1d5a4f53e1406697}{F}}=f;}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mini_p_i_d_a7d2b5c49fd21877b5b9201281b8ce056}\label{class_mini_p_i_d_a7d2b5c49fd21877b5b9201281b8ce056}} 
+\index{MiniPID@{MiniPID}!bounded@{bounded}}
+\index{bounded@{bounded}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{bounded()}{bounded()}}
+{\footnotesize\ttfamily bool Mini\+P\+I\+D\+::bounded (\begin{DoxyParamCaption}\item[{double}]{value,  }\item[{double}]{min,  }\item[{double}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Test if the value is within the min and max, inclusive 
+\begin{DoxyParams}{Parameters}
+{\em value} & to test \\
+\hline
+{\em min} & Minimum value of range \\
+\hline
+{\em max} & Maximum value of range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 347 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{347                                                          \{}
+\DoxyCodeLine{348         \textcolor{keywordflow}{return} (min<value) \&\& (value<max);}
+\DoxyCodeLine{349 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_a8de15f8e2df5822703baaa5afba2e4f8}\label{class_mini_p_i_d_a8de15f8e2df5822703baaa5afba2e4f8}} 
+\index{MiniPID@{MiniPID}!checkSigns@{checkSigns}}
+\index{checkSigns@{checkSigns}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{checkSigns()}{checkSigns()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::check\+Signs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+To operate correctly, all P\+ID parameters require the same sign, with that sign depending on the \{@literal\}reversed value 
+
+Definition at line 355 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{355                         \{}
+\DoxyCodeLine{356     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_ae165f7e6d27f6164d99481a53335b4a4}{reversed}})\{   \textcolor{comment}{//all values should be below zero}}
+\DoxyCodeLine{357         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}{P}}>0) \mbox{\hyperlink{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}{P}}*=-\/1;}
+\DoxyCodeLine{358         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}>0) \mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}*=-\/1;}
+\DoxyCodeLine{359         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}{D}}>0) \mbox{\hyperlink{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}{D}}*=-\/1;}
+\DoxyCodeLine{360         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_a7f9e2443d539634e1d5a4f53e1406697}{F}}>0) \mbox{\hyperlink{class_mini_p_i_d_a7f9e2443d539634e1d5a4f53e1406697}{F}}*=-\/1;}
+\DoxyCodeLine{361     \}}
+\DoxyCodeLine{362     \textcolor{keywordflow}{else}\{   \textcolor{comment}{//all values should be above zero}}
+\DoxyCodeLine{363         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}{P}}<0) \mbox{\hyperlink{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}{P}}*=-\/1;}
+\DoxyCodeLine{364         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}<0) \mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}*=-\/1;}
+\DoxyCodeLine{365         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}{D}}<0) \mbox{\hyperlink{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}{D}}*=-\/1;}
+\DoxyCodeLine{366         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_a7f9e2443d539634e1d5a4f53e1406697}{F}}<0) \mbox{\hyperlink{class_mini_p_i_d_a7f9e2443d539634e1d5a4f53e1406697}{F}}*=-\/1;}
+\DoxyCodeLine{367     \}}
+\DoxyCodeLine{368 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_a9d489ef267d7c5ea5bfb35757089b30c}\label{class_mini_p_i_d_a9d489ef267d7c5ea5bfb35757089b30c}} 
+\index{MiniPID@{MiniPID}!clamp@{clamp}}
+\index{clamp@{clamp}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{clamp()}{clamp()}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::clamp (\begin{DoxyParamCaption}\item[{double}]{value,  }\item[{double}]{min,  }\item[{double}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Forces a value into a specific range 
+\begin{DoxyParams}{Parameters}
+{\em value} & input value \\
+\hline
+{\em min} & maximum returned value \\
+\hline
+{\em max} & minimum value in range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value if it\textquotesingle{}s within provided range, min or max otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 334 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{334                                                          \{}
+\DoxyCodeLine{335     \textcolor{keywordflow}{if}(value > max)\{ \textcolor{keywordflow}{return} max;\}}
+\DoxyCodeLine{336     \textcolor{keywordflow}{if}(value < min)\{ \textcolor{keywordflow}{return} min;\}}
+\DoxyCodeLine{337     \textcolor{keywordflow}{return} value;}
+\DoxyCodeLine{338 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_abf93d543fcbefa2528330be4331860d6}\label{class_mini_p_i_d_abf93d543fcbefa2528330be4331860d6}} 
+\index{MiniPID@{MiniPID}!getOutput@{getOutput}}
+\index{getOutput@{getOutput}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{getOutput()}{getOutput()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::get\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Calculates the P\+ID value using the last provided setpoint and actual values \begin{DoxyReturn}{Returns}
+calculated output value for driving the actual to the target 
+\end{DoxyReturn}
+
+
+Definition at line 275 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{275                          \{}
+\DoxyCodeLine{276     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_mini_p_i_d_abf93d543fcbefa2528330be4331860d6}{getOutput}}(\mbox{\hyperlink{class_mini_p_i_d_a64068c5ac32d5f76135c9b29f367a954}{lastActual}},\mbox{\hyperlink{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}{setpoint}});}
+\DoxyCodeLine{277 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_ad755c883404fd3a68a55f24630ec6262}\label{class_mini_p_i_d_ad755c883404fd3a68a55f24630ec6262}} 
+\index{MiniPID@{MiniPID}!getOutput@{getOutput}}
+\index{getOutput@{getOutput}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{getOutput()}{getOutput()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::get\+Output (\begin{DoxyParamCaption}\item[{double}]{actual }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em actual} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+calculated output value for driving the actual to the target 
+\end{DoxyReturn}
+
+
+Definition at line 283 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{283                                       \{}
+\DoxyCodeLine{284     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_mini_p_i_d_abf93d543fcbefa2528330be4331860d6}{getOutput}}(actual,\mbox{\hyperlink{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}{setpoint}});}
+\DoxyCodeLine{285 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_aa411c4f0bfb803723e6afa28597f1fe5}\label{class_mini_p_i_d_aa411c4f0bfb803723e6afa28597f1fe5}} 
+\index{MiniPID@{MiniPID}!getOutput@{getOutput}}
+\index{getOutput@{getOutput}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{getOutput()}{getOutput()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::get\+Output (\begin{DoxyParamCaption}\item[{double}]{actual,  }\item[{double}]{setpoint }\end{DoxyParamCaption})}
+
+Calculate the P\+ID value needed to hit the target setpoint. Automatically re-\/calculates the output at each call. 
+\begin{DoxyParams}{Parameters}
+{\em actual} & The monitored value \\
+\hline
+{\em target} & The target value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+calculated output value for driving the actual to the target 
+\end{DoxyReturn}
+
+
+Definition at line 183 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{183                                                        \{}
+\DoxyCodeLine{184     \textcolor{keywordtype}{double} output;}
+\DoxyCodeLine{185     \textcolor{keywordtype}{double} Poutput;}
+\DoxyCodeLine{186     \textcolor{keywordtype}{double} Ioutput;}
+\DoxyCodeLine{187     \textcolor{keywordtype}{double} Doutput;}
+\DoxyCodeLine{188     \textcolor{keywordtype}{double} Foutput;}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190     this-\/>\mbox{\hyperlink{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}{setpoint}}=\mbox{\hyperlink{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}{setpoint}};}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192     \textcolor{comment}{//Ramp the setpoint used for calculations if user has opted to do so}}
+\DoxyCodeLine{193     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_a3031543f427e6a6c616d470d8ac854ed}{setpointRange}}!=0)\{}
+\DoxyCodeLine{194         \mbox{\hyperlink{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}{setpoint}}=\mbox{\hyperlink{class_mini_p_i_d_a9d489ef267d7c5ea5bfb35757089b30c}{clamp}}(\mbox{\hyperlink{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}{setpoint}},actual-\/\mbox{\hyperlink{class_mini_p_i_d_a3031543f427e6a6c616d470d8ac854ed}{setpointRange}},actual+\mbox{\hyperlink{class_mini_p_i_d_a3031543f427e6a6c616d470d8ac854ed}{setpointRange}});}
+\DoxyCodeLine{195     \}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     \textcolor{comment}{//Do the simple parts of the calculations}}
+\DoxyCodeLine{198     \textcolor{keywordtype}{double} \mbox{\hyperlink{main_8cpp_a9585f7c65cacfde431ff801e5f68ea4b}{error}}=\mbox{\hyperlink{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}{setpoint}}-\/actual;}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200     \textcolor{comment}{//Calculate F output. Notice, this-\/>depends only on the setpoint, and not the error. }}
+\DoxyCodeLine{201     Foutput=\mbox{\hyperlink{class_mini_p_i_d_a7f9e2443d539634e1d5a4f53e1406697}{F}}*\mbox{\hyperlink{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}{setpoint}};}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203     \textcolor{comment}{//Calculate P term}}
+\DoxyCodeLine{204     Poutput=\mbox{\hyperlink{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}{P}}*\mbox{\hyperlink{main_8cpp_a9585f7c65cacfde431ff801e5f68ea4b}{error}};   }
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206     \textcolor{comment}{//If this-\/>is our first time running this-\/> we don't actually \_have\_ a previous input or output. }}
+\DoxyCodeLine{207     \textcolor{comment}{//For sensor, sanely assume it was exactly where it is now.}}
+\DoxyCodeLine{208     \textcolor{comment}{//For last output, we can assume it's the current time-\/independent outputs. }}
+\DoxyCodeLine{209     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_ab2e8805c2cadebf2a138229c321f2e76}{firstRun}})\{}
+\DoxyCodeLine{210         \mbox{\hyperlink{class_mini_p_i_d_a64068c5ac32d5f76135c9b29f367a954}{lastActual}}=actual;}
+\DoxyCodeLine{211         \mbox{\hyperlink{class_mini_p_i_d_abaa6fe2cd66e8165015b61df3ee92d5c}{lastOutput}}=Poutput+Foutput;}
+\DoxyCodeLine{212         \mbox{\hyperlink{class_mini_p_i_d_ab2e8805c2cadebf2a138229c321f2e76}{firstRun}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{213     \}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216     \textcolor{comment}{//Calculate D Term}}
+\DoxyCodeLine{217     \textcolor{comment}{//Note, this-\/>is negative. this-\/>actually "{}slows"{} the system if it's doing}}
+\DoxyCodeLine{218     \textcolor{comment}{//the correct thing, and small values helps prevent output spikes and overshoot }}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220     Doutput= -\/\mbox{\hyperlink{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}{D}}*(actual-\/\mbox{\hyperlink{class_mini_p_i_d_a64068c5ac32d5f76135c9b29f367a954}{lastActual}});}
+\DoxyCodeLine{221     \mbox{\hyperlink{class_mini_p_i_d_a64068c5ac32d5f76135c9b29f367a954}{lastActual}}=actual;}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225     \textcolor{comment}{//The Iterm is more complex. There's several things to factor in to make it easier to deal with.}}
+\DoxyCodeLine{226     \textcolor{comment}{// 1. maxIoutput restricts the amount of output contributed by the Iterm.}}
+\DoxyCodeLine{227     \textcolor{comment}{// 2. prevent windup by not increasing errorSum if we're already running against our max Ioutput}}
+\DoxyCodeLine{228     \textcolor{comment}{// 3. prevent windup by not increasing errorSum if output is output=maxOutput   }}
+\DoxyCodeLine{229     Ioutput=\mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}*\mbox{\hyperlink{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}{errorSum}};}
+\DoxyCodeLine{230     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}{maxIOutput}}!=0)\{}
+\DoxyCodeLine{231         Ioutput=\mbox{\hyperlink{class_mini_p_i_d_a9d489ef267d7c5ea5bfb35757089b30c}{clamp}}(Ioutput,-\/\mbox{\hyperlink{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}{maxIOutput}},\mbox{\hyperlink{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}{maxIOutput}}); }
+\DoxyCodeLine{232     \}   }
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234     \textcolor{comment}{//And, finally, we can just add the terms up}}
+\DoxyCodeLine{235     output=Foutput + Poutput + Ioutput + Doutput;}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237     \textcolor{comment}{//Figure out what we're doing with the error.}}
+\DoxyCodeLine{238     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_a123be1f18fc1c3cc7f6b5c890d33aae4}{minOutput}}!=\mbox{\hyperlink{class_mini_p_i_d_a03a66768b6437135054fc0c2272d4225}{maxOutput}} \&\& !\mbox{\hyperlink{class_mini_p_i_d_a7d2b5c49fd21877b5b9201281b8ce056}{bounded}}(output, \mbox{\hyperlink{class_mini_p_i_d_a123be1f18fc1c3cc7f6b5c890d33aae4}{minOutput}},\mbox{\hyperlink{class_mini_p_i_d_a03a66768b6437135054fc0c2272d4225}{maxOutput}}) )\{}
+\DoxyCodeLine{239         \mbox{\hyperlink{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}{errorSum}}=\mbox{\hyperlink{main_8cpp_a9585f7c65cacfde431ff801e5f68ea4b}{error}}; }
+\DoxyCodeLine{240         \textcolor{comment}{// reset the error sum to a sane level}}
+\DoxyCodeLine{241         \textcolor{comment}{// Setting to current error ensures a smooth transition when the P term }}
+\DoxyCodeLine{242         \textcolor{comment}{// decreases enough for the I term to start acting upon the controller}}
+\DoxyCodeLine{243         \textcolor{comment}{// From that point the I term will build up as would be expected}}
+\DoxyCodeLine{244     \}}
+\DoxyCodeLine{245     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_a4906d576af316a1f103e5c0dab901acb}{outputRampRate}}!=0 \&\& !\mbox{\hyperlink{class_mini_p_i_d_a7d2b5c49fd21877b5b9201281b8ce056}{bounded}}(output, \mbox{\hyperlink{class_mini_p_i_d_abaa6fe2cd66e8165015b61df3ee92d5c}{lastOutput}}-\/\mbox{\hyperlink{class_mini_p_i_d_a4906d576af316a1f103e5c0dab901acb}{outputRampRate}},\mbox{\hyperlink{class_mini_p_i_d_abaa6fe2cd66e8165015b61df3ee92d5c}{lastOutput}}+\mbox{\hyperlink{class_mini_p_i_d_a4906d576af316a1f103e5c0dab901acb}{outputRampRate}}) )\{}
+\DoxyCodeLine{246         \mbox{\hyperlink{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}{errorSum}}=\mbox{\hyperlink{main_8cpp_a9585f7c65cacfde431ff801e5f68ea4b}{error}}; }
+\DoxyCodeLine{247     \}}
+\DoxyCodeLine{248     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}{maxIOutput}}!=0)\{}
+\DoxyCodeLine{249         \mbox{\hyperlink{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}{errorSum}}=\mbox{\hyperlink{class_mini_p_i_d_a9d489ef267d7c5ea5bfb35757089b30c}{clamp}}(\mbox{\hyperlink{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}{errorSum}}+\mbox{\hyperlink{main_8cpp_a9585f7c65cacfde431ff801e5f68ea4b}{error}},-\/\mbox{\hyperlink{class_mini_p_i_d_abde3b9126780f67b9176a26eac5cbf86}{maxError}},\mbox{\hyperlink{class_mini_p_i_d_abde3b9126780f67b9176a26eac5cbf86}{maxError}});}
+\DoxyCodeLine{250         \textcolor{comment}{// In addition to output limiting directly, we also want to prevent I term }}
+\DoxyCodeLine{251         \textcolor{comment}{// buildup, so restrict the error directly}}
+\DoxyCodeLine{252     \}}
+\DoxyCodeLine{253     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{254         \mbox{\hyperlink{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}{errorSum}}+=\mbox{\hyperlink{main_8cpp_a9585f7c65cacfde431ff801e5f68ea4b}{error}};}
+\DoxyCodeLine{255     \}}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257     \textcolor{comment}{//Restrict output to our specified output and ramp limits}}
+\DoxyCodeLine{258     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_a4906d576af316a1f103e5c0dab901acb}{outputRampRate}}!=0)\{}
+\DoxyCodeLine{259         output=\mbox{\hyperlink{class_mini_p_i_d_a9d489ef267d7c5ea5bfb35757089b30c}{clamp}}(output, \mbox{\hyperlink{class_mini_p_i_d_abaa6fe2cd66e8165015b61df3ee92d5c}{lastOutput}}-\/\mbox{\hyperlink{class_mini_p_i_d_a4906d576af316a1f103e5c0dab901acb}{outputRampRate}},\mbox{\hyperlink{class_mini_p_i_d_abaa6fe2cd66e8165015b61df3ee92d5c}{lastOutput}}+\mbox{\hyperlink{class_mini_p_i_d_a4906d576af316a1f103e5c0dab901acb}{outputRampRate}});}
+\DoxyCodeLine{260     \}}
+\DoxyCodeLine{261     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_a123be1f18fc1c3cc7f6b5c890d33aae4}{minOutput}}!=\mbox{\hyperlink{class_mini_p_i_d_a03a66768b6437135054fc0c2272d4225}{maxOutput}})\{ }
+\DoxyCodeLine{262         output=\mbox{\hyperlink{class_mini_p_i_d_a9d489ef267d7c5ea5bfb35757089b30c}{clamp}}(output, \mbox{\hyperlink{class_mini_p_i_d_a123be1f18fc1c3cc7f6b5c890d33aae4}{minOutput}},\mbox{\hyperlink{class_mini_p_i_d_a03a66768b6437135054fc0c2272d4225}{maxOutput}});}
+\DoxyCodeLine{263         \}}
+\DoxyCodeLine{264     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_a5becd8089bdae07ab6b2f1afc21dc510}{outputFilter}}!=0)\{}
+\DoxyCodeLine{265         output=\mbox{\hyperlink{class_mini_p_i_d_abaa6fe2cd66e8165015b61df3ee92d5c}{lastOutput}}*\mbox{\hyperlink{class_mini_p_i_d_a5becd8089bdae07ab6b2f1afc21dc510}{outputFilter}}+output*(1-\/\mbox{\hyperlink{class_mini_p_i_d_a5becd8089bdae07ab6b2f1afc21dc510}{outputFilter}});}
+\DoxyCodeLine{266     \}}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268     \mbox{\hyperlink{class_mini_p_i_d_abaa6fe2cd66e8165015b61df3ee92d5c}{lastOutput}}=output;}
+\DoxyCodeLine{269     \textcolor{keywordflow}{return} output;}
+\DoxyCodeLine{270 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_ab627fce64ff55aad5f801ab7b5fdcca6}\label{class_mini_p_i_d_ab627fce64ff55aad5f801ab7b5fdcca6}} 
+\index{MiniPID@{MiniPID}!init@{init}}
+\index{init@{init}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 25 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25                   \{}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}{P}}=0;}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}=0;}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}{D}}=0;}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_mini_p_i_d_a7f9e2443d539634e1d5a4f53e1406697}{F}}=0;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \mbox{\hyperlink{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}{maxIOutput}}=0;}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_mini_p_i_d_abde3b9126780f67b9176a26eac5cbf86}{maxError}}=0;}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}{errorSum}}=0;}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_mini_p_i_d_a03a66768b6437135054fc0c2272d4225}{maxOutput}}=0; }
+\DoxyCodeLine{35     \mbox{\hyperlink{class_mini_p_i_d_a123be1f18fc1c3cc7f6b5c890d33aae4}{minOutput}}=0;}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}{setpoint}}=0;}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_mini_p_i_d_a64068c5ac32d5f76135c9b29f367a954}{lastActual}}=0;}
+\DoxyCodeLine{38     \mbox{\hyperlink{class_mini_p_i_d_ab2e8805c2cadebf2a138229c321f2e76}{firstRun}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{39     \mbox{\hyperlink{class_mini_p_i_d_ae165f7e6d27f6164d99481a53335b4a4}{reversed}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{40     \mbox{\hyperlink{class_mini_p_i_d_a4906d576af316a1f103e5c0dab901acb}{outputRampRate}}=0;}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_mini_p_i_d_abaa6fe2cd66e8165015b61df3ee92d5c}{lastOutput}}=0;}
+\DoxyCodeLine{42     \mbox{\hyperlink{class_mini_p_i_d_a5becd8089bdae07ab6b2f1afc21dc510}{outputFilter}}=0;}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_mini_p_i_d_a3031543f427e6a6c616d470d8ac854ed}{setpointRange}}=0;}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_a6e0d9e706c95119bdab25e11e9d5b34b}\label{class_mini_p_i_d_a6e0d9e706c95119bdab25e11e9d5b34b}} 
+\index{MiniPID@{MiniPID}!reset@{reset}}
+\index{reset@{reset}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Resets the controller. this-\/$>$erases the I term buildup, and removes D gain on the next loop. 
+
+Definition at line 289 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{289                    \{}
+\DoxyCodeLine{290     \mbox{\hyperlink{class_mini_p_i_d_ab2e8805c2cadebf2a138229c321f2e76}{firstRun}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{291     \mbox{\hyperlink{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}{errorSum}}=0;}
+\DoxyCodeLine{292 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_a74440a2cfa3fdcaefa4e6c673cead085}\label{class_mini_p_i_d_a74440a2cfa3fdcaefa4e6c673cead085}} 
+\index{MiniPID@{MiniPID}!setD@{setD}}
+\index{setD@{setD}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setD()}{setD()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::setD (\begin{DoxyParamCaption}\item[{double}]{d }\end{DoxyParamCaption})}
+
+
+
+Definition at line 89 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{89                           \{}
+\DoxyCodeLine{90     \mbox{\hyperlink{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}{D}}=d;}
+\DoxyCodeLine{91     \mbox{\hyperlink{class_mini_p_i_d_a8de15f8e2df5822703baaa5afba2e4f8}{checkSigns}}();}
+\DoxyCodeLine{92 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_ac002a67ec69e3d7368ada040761daf02}\label{class_mini_p_i_d_ac002a67ec69e3d7368ada040761daf02}} 
+\index{MiniPID@{MiniPID}!setDirection@{setDirection}}
+\index{setDirection@{setDirection}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setDirection()}{setDirection()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::set\+Direction (\begin{DoxyParamCaption}\item[{bool}]{reversed }\end{DoxyParamCaption})}
+
+Set the operating direction of the P\+ID controller 
+\begin{DoxyParams}{Parameters}
+{\em reversed} & Set true to reverse P\+ID output \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 162 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{162                                        \{}
+\DoxyCodeLine{163     this-\/>\mbox{\hyperlink{class_mini_p_i_d_ae165f7e6d27f6164d99481a53335b4a4}{reversed}}=\mbox{\hyperlink{class_mini_p_i_d_ae165f7e6d27f6164d99481a53335b4a4}{reversed}};}
+\DoxyCodeLine{164 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_aea7a19ec642d405aff073565e9611ece}\label{class_mini_p_i_d_aea7a19ec642d405aff073565e9611ece}} 
+\index{MiniPID@{MiniPID}!setF@{setF}}
+\index{setF@{setF}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setF()}{setF()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::setF (\begin{DoxyParamCaption}\item[{double}]{f }\end{DoxyParamCaption})}
+
+Configure the Feed\+Forward parameter. ~\newline
+ this-\/$>$is excellent for Velocity, rate, and other continuous control modes where you can expect a rough output value based solely on the setpoint.~\newline
+ Should not be used in \char`\"{}position\char`\"{} based control modes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Feed forward gain. Affects output according to {\bfseries{output+=F$\ast$\+Setpoint}}; \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 101 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{101                           \{}
+\DoxyCodeLine{102     \mbox{\hyperlink{class_mini_p_i_d_a7f9e2443d539634e1d5a4f53e1406697}{F}}=f;}
+\DoxyCodeLine{103     \mbox{\hyperlink{class_mini_p_i_d_a8de15f8e2df5822703baaa5afba2e4f8}{checkSigns}}();}
+\DoxyCodeLine{104 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_a58ca3ed0ee056a4c8f08c0515b21d669}\label{class_mini_p_i_d_a58ca3ed0ee056a4c8f08c0515b21d669}} 
+\index{MiniPID@{MiniPID}!setI@{setI}}
+\index{setI@{setI}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setI()}{setI()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::setI (\begin{DoxyParamCaption}\item[{double}]{i }\end{DoxyParamCaption})}
+
+Changes the I parameter ~\newline
+ this-\/$>$is used for overcoming disturbances, and ensuring that the controller always gets to the control mode. Typically tuned second for \char`\"{}\+Position\char`\"{} based modes, and third for \char`\"{}\+Rate\char`\"{} or continuous based modes. ~\newline
+ Affects output through {\bfseries{output+=previous\+\_\+errors$\ast$\+Igain ;previous\+\_\+errors+=current\+\_\+error}}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_mini_p_i_d_a328743fc2b592da72f03b7042c0e82de}{set\+Max\+I\+Output}} for how to restrict
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em i} & New gain value for the Integral term \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 72 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72                           \{}
+\DoxyCodeLine{73     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}!=0)\{}
+\DoxyCodeLine{74         \mbox{\hyperlink{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}{errorSum}}=\mbox{\hyperlink{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}{errorSum}}*\mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}/i;}
+\DoxyCodeLine{75         \}}
+\DoxyCodeLine{76     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}{maxIOutput}}!=0)\{}
+\DoxyCodeLine{77         \mbox{\hyperlink{class_mini_p_i_d_abde3b9126780f67b9176a26eac5cbf86}{maxError}}=\mbox{\hyperlink{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}{maxIOutput}}/i;}
+\DoxyCodeLine{78     \}}
+\DoxyCodeLine{79     \mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}=i;}
+\DoxyCodeLine{80     \mbox{\hyperlink{class_mini_p_i_d_a8de15f8e2df5822703baaa5afba2e4f8}{checkSigns}}();}
+\DoxyCodeLine{81      \textcolor{comment}{/* Implementation note: }}
+\DoxyCodeLine{82 \textcolor{comment}{     * this-\/>Scales the accumulated error to avoid output errors. }}
+\DoxyCodeLine{83 \textcolor{comment}{     * As an example doubling the I term cuts the accumulated error in half, which results in the }}
+\DoxyCodeLine{84 \textcolor{comment}{     * output change due to the I term constant during the transition. }}
+\DoxyCodeLine{85 \textcolor{comment}{     *}}
+\DoxyCodeLine{86 \textcolor{comment}{     */}}
+\DoxyCodeLine{87 \} }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_a328743fc2b592da72f03b7042c0e82de}\label{class_mini_p_i_d_a328743fc2b592da72f03b7042c0e82de}} 
+\index{MiniPID@{MiniPID}!setMaxIOutput@{setMaxIOutput}}
+\index{setMaxIOutput@{setMaxIOutput}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setMaxIOutput()}{setMaxIOutput()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::set\+Max\+I\+Output (\begin{DoxyParamCaption}\item[{double}]{maximum }\end{DoxyParamCaption})}
+
+Set the maximum output value contributed by the I component of the system this-\/$>$can be used to prevent large windup issues and make tuning simpler 
+\begin{DoxyParams}{Parameters}
+{\em maximum.} & Units are the same as the expected output value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 125 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125                                          \{}
+\DoxyCodeLine{126     \textcolor{comment}{/* Internally maxError and Izone are similar, but scaled for different purposes. }}
+\DoxyCodeLine{127 \textcolor{comment}{     * The maxError is generated for simplifying math, since calculations against }}
+\DoxyCodeLine{128 \textcolor{comment}{     * the max error are far more common than changing the I term or Izone. }}
+\DoxyCodeLine{129 \textcolor{comment}{     */}}
+\DoxyCodeLine{130     \mbox{\hyperlink{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}{maxIOutput}}=maximum;}
+\DoxyCodeLine{131     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}!=0)\{}
+\DoxyCodeLine{132         \mbox{\hyperlink{class_mini_p_i_d_abde3b9126780f67b9176a26eac5cbf86}{maxError}}=\mbox{\hyperlink{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}{maxIOutput}}/\mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}};}
+\DoxyCodeLine{133     \}}
+\DoxyCodeLine{134 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_a4f351bb373a9c83588ff9af571b94471}\label{class_mini_p_i_d_a4f351bb373a9c83588ff9af571b94471}} 
+\index{MiniPID@{MiniPID}!setOutputFilter@{setOutputFilter}}
+\index{setOutputFilter@{setOutputFilter}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setOutputFilter()}{setOutputFilter()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::set\+Output\+Filter (\begin{DoxyParamCaption}\item[{double}]{strength }\end{DoxyParamCaption})}
+
+Set a filter on the output to reduce sharp oscillations. ~\newline
+ 0.\+1 is likely a sane starting value. Larger values P and D oscillations, but force larger I values. Uses an exponential rolling sum filter, according to a simple ~\newline
+ 
+\begin{DoxyPre}output*(1-\/strength)*sum(0..n)\{output*strength^n\}\end{DoxyPre}
+ 
+\begin{DoxyParams}{Parameters}
+{\em output} & valid between \mbox{[}0..1), meaning \mbox{[}current output only.. historical output only) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 317 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{317                                             \{}
+\DoxyCodeLine{318     \textcolor{keywordflow}{if}(strength==0 || \mbox{\hyperlink{class_mini_p_i_d_a7d2b5c49fd21877b5b9201281b8ce056}{bounded}}(strength,0,1))\{}
+\DoxyCodeLine{319         \mbox{\hyperlink{class_mini_p_i_d_a5becd8089bdae07ab6b2f1afc21dc510}{outputFilter}}=strength;}
+\DoxyCodeLine{320     \}}
+\DoxyCodeLine{321 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_ab2c09775e410617f5279ae77fbfbb4be}\label{class_mini_p_i_d_ab2c09775e410617f5279ae77fbfbb4be}} 
+\index{MiniPID@{MiniPID}!setOutputLimits@{setOutputLimits}}
+\index{setOutputLimits@{setOutputLimits}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setOutputLimits()}{setOutputLimits()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::set\+Output\+Limits (\begin{DoxyParamCaption}\item[{double}]{output }\end{DoxyParamCaption})}
+
+Specify a maximum output. If a single parameter is specified, the minimum is set to (-\/maximum). 
+\begin{DoxyParams}{Parameters}
+{\em output} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 140 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{140                                           \{ }
+\DoxyCodeLine{141     \mbox{\hyperlink{class_mini_p_i_d_ab2c09775e410617f5279ae77fbfbb4be}{setOutputLimits}}(-\/output,output);}
+\DoxyCodeLine{142     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_a46adb5f910889576580e4db967197f8d}\label{class_mini_p_i_d_a46adb5f910889576580e4db967197f8d}} 
+\index{MiniPID@{MiniPID}!setOutputLimits@{setOutputLimits}}
+\index{setOutputLimits@{setOutputLimits}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setOutputLimits()}{setOutputLimits()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::set\+Output\+Limits (\begin{DoxyParamCaption}\item[{double}]{minimum,  }\item[{double}]{maximum }\end{DoxyParamCaption})}
+
+Specify a maximum output. 
+\begin{DoxyParams}{Parameters}
+{\em minimum} & possible output value \\
+\hline
+{\em maximum} & possible output value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 148 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{148                                                           \{}
+\DoxyCodeLine{149     \textcolor{keywordflow}{if}(maximum<minimum)\textcolor{keywordflow}{return};}
+\DoxyCodeLine{150     \mbox{\hyperlink{class_mini_p_i_d_a03a66768b6437135054fc0c2272d4225}{maxOutput}}=maximum;}
+\DoxyCodeLine{151     \mbox{\hyperlink{class_mini_p_i_d_a123be1f18fc1c3cc7f6b5c890d33aae4}{minOutput}}=minimum;}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153     \textcolor{comment}{// Ensure the bounds of the I term are within the bounds of the allowable output swing}}
+\DoxyCodeLine{154     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}{maxIOutput}}==0 || \mbox{\hyperlink{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}{maxIOutput}}>(maximum-\/minimum) )\{}
+\DoxyCodeLine{155         \mbox{\hyperlink{class_mini_p_i_d_a328743fc2b592da72f03b7042c0e82de}{setMaxIOutput}}(maximum-\/minimum);}
+\DoxyCodeLine{156     \}}
+\DoxyCodeLine{157 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_ab687498b721436b48d040c2cb3508517}\label{class_mini_p_i_d_ab687498b721436b48d040c2cb3508517}} 
+\index{MiniPID@{MiniPID}!setOutputRampRate@{setOutputRampRate}}
+\index{setOutputRampRate@{setOutputRampRate}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setOutputRampRate()}{setOutputRampRate()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::set\+Output\+Ramp\+Rate (\begin{DoxyParamCaption}\item[{double}]{rate }\end{DoxyParamCaption})}
+
+Set the maximum rate the output can increase per cycle. 
+\begin{DoxyParams}{Parameters}
+{\em rate} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 297 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{297                                           \{}
+\DoxyCodeLine{298     \mbox{\hyperlink{class_mini_p_i_d_a4906d576af316a1f103e5c0dab901acb}{outputRampRate}}=rate;}
+\DoxyCodeLine{299 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_af692b99cdc9da5cc6dac7b8fa9f88c8e}\label{class_mini_p_i_d_af692b99cdc9da5cc6dac7b8fa9f88c8e}} 
+\index{MiniPID@{MiniPID}!setP@{setP}}
+\index{setP@{setP}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setP()}{setP()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::setP (\begin{DoxyParamCaption}\item[{double}]{p }\end{DoxyParamCaption})}
+
+Configure the Proportional gain parameter. ~\newline
+ this-\/$>$responds quicly to changes in setpoint, and provides most of the initial driving force to make corrections. ~\newline
+ Some systems can be used with only a P gain, and many can be operated with only PI.~\newline
+ For position based controllers, this-\/$>$is the first parameter to tune, with I second. ~\newline
+ For rate controlled systems, this-\/$>$is often the second after F.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Proportional gain. Affects output according to {\bfseries{output+=P$\ast$(setpoint-\/current\+\_\+value)}} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58                           \{}
+\DoxyCodeLine{59     \mbox{\hyperlink{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}{P}}=p;}
+\DoxyCodeLine{60     \mbox{\hyperlink{class_mini_p_i_d_a8de15f8e2df5822703baaa5afba2e4f8}{checkSigns}}();}
+\DoxyCodeLine{61 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_ad4c90731f1377f49acd63c71f45fc227}\label{class_mini_p_i_d_ad4c90731f1377f49acd63c71f45fc227}} 
+\index{MiniPID@{MiniPID}!setPID@{setPID}}
+\index{setPID@{setPID}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setPID()}{setPID()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::set\+P\+ID (\begin{DoxyParamCaption}\item[{double}]{p,  }\item[{double}]{i,  }\item[{double}]{d }\end{DoxyParamCaption})}
+
+Create a new P\+ID object. 
+\begin{DoxyParams}{Parameters}
+{\em p} & Proportional gain. Large if large difference between setpoint and target. \\
+\hline
+{\em i} & Integral gain. Becomes large if setpoint cannot reach target quickly. \\
+\hline
+{\em d} & Derivative gain. Responds quickly to large changes in error. Small values prevents P and I terms from causing overshoot. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 111 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{111                                                 \{}
+\DoxyCodeLine{112     \mbox{\hyperlink{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}{P}}=p;\mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}=i;\mbox{\hyperlink{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}{D}}=d;}
+\DoxyCodeLine{113     \mbox{\hyperlink{class_mini_p_i_d_a8de15f8e2df5822703baaa5afba2e4f8}{checkSigns}}();}
+\DoxyCodeLine{114 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_ac74a0ba95868898e79a6a65beafd96d2}\label{class_mini_p_i_d_ac74a0ba95868898e79a6a65beafd96d2}} 
+\index{MiniPID@{MiniPID}!setPID@{setPID}}
+\index{setPID@{setPID}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setPID()}{setPID()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::set\+P\+ID (\begin{DoxyParamCaption}\item[{double}]{p,  }\item[{double}]{i,  }\item[{double}]{d,  }\item[{double}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line 116 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{116                                                          \{}
+\DoxyCodeLine{117     \mbox{\hyperlink{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}{P}}=p;\mbox{\hyperlink{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}{I}}=i;\mbox{\hyperlink{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}{D}}=d;\mbox{\hyperlink{class_mini_p_i_d_a7f9e2443d539634e1d5a4f53e1406697}{F}}=f;}
+\DoxyCodeLine{118     \mbox{\hyperlink{class_mini_p_i_d_a8de15f8e2df5822703baaa5afba2e4f8}{checkSigns}}();}
+\DoxyCodeLine{119 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_a9f72d3279bc279fa913a461f2db56da4}\label{class_mini_p_i_d_a9f72d3279bc279fa913a461f2db56da4}} 
+\index{MiniPID@{MiniPID}!setSetpoint@{setSetpoint}}
+\index{setSetpoint@{setSetpoint}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setSetpoint()}{setSetpoint()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::set\+Setpoint (\begin{DoxyParamCaption}\item[{double}]{setpoint }\end{DoxyParamCaption})}
+
+Set the target for the P\+ID calculations 
+\begin{DoxyParams}{Parameters}
+{\em setpoint} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 173 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{173                                         \{}
+\DoxyCodeLine{174     this-\/>\mbox{\hyperlink{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}{setpoint}}=\mbox{\hyperlink{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}{setpoint}};}
+\DoxyCodeLine{175 \} }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mini_p_i_d_af81e04003fa1cbf5034bf725902a05ee}\label{class_mini_p_i_d_af81e04003fa1cbf5034bf725902a05ee}} 
+\index{MiniPID@{MiniPID}!setSetpointRange@{setSetpointRange}}
+\index{setSetpointRange@{setSetpointRange}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setSetpointRange()}{setSetpointRange()}}
+{\footnotesize\ttfamily void Mini\+P\+I\+D\+::set\+Setpoint\+Range (\begin{DoxyParamCaption}\item[{double}]{range }\end{DoxyParamCaption})}
+
+Set a limit on how far the setpoint can be from the current position ~\newline
+Can simplify tuning by helping tuning over a small range applies to a much larger range. ~\newline
+this-\/$>$limits the reactivity of P term, and restricts impact of large D term during large setpoint adjustments. Increases lag and I term if range is too small. 
+\begin{DoxyParams}{Parameters}
+{\em range} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 307 of file Mini\+P\+I\+D.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{307                                           \{}
+\DoxyCodeLine{308     \mbox{\hyperlink{class_mini_p_i_d_a3031543f427e6a6c616d470d8ac854ed}{setpointRange}}=range;}
+\DoxyCodeLine{309 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}\label{class_mini_p_i_d_a02d65272936bf8ad6ca5a257835e7b26}} 
+\index{MiniPID@{MiniPID}!D@{D}}
+\index{D@{D}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{D}{D}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::D\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 34 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}\label{class_mini_p_i_d_a3155b6403789f9b87382b00bc2f0262e}} 
+\index{MiniPID@{MiniPID}!errorSum@{errorSum}}
+\index{errorSum@{errorSum}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{errorSum}{errorSum}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::error\+Sum\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 39 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_a7f9e2443d539634e1d5a4f53e1406697}\label{class_mini_p_i_d_a7f9e2443d539634e1d5a4f53e1406697}} 
+\index{MiniPID@{MiniPID}!F@{F}}
+\index{F@{F}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{F}{F}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::F\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 35 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_ab2e8805c2cadebf2a138229c321f2e76}\label{class_mini_p_i_d_ab2e8805c2cadebf2a138229c321f2e76}} 
+\index{MiniPID@{MiniPID}!firstRun@{firstRun}}
+\index{firstRun@{firstRun}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{firstRun}{firstRun}}
+{\footnotesize\ttfamily bool Mini\+P\+I\+D\+::first\+Run\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 48 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}\label{class_mini_p_i_d_ae2670c16fff473633bd4a60cc2046d8e}} 
+\index{MiniPID@{MiniPID}!I@{I}}
+\index{I@{I}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{I}{I}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::I\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 33 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_a64068c5ac32d5f76135c9b29f367a954}\label{class_mini_p_i_d_a64068c5ac32d5f76135c9b29f367a954}} 
+\index{MiniPID@{MiniPID}!lastActual@{lastActual}}
+\index{lastActual@{lastActual}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{lastActual}{lastActual}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::last\+Actual\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 46 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_abaa6fe2cd66e8165015b61df3ee92d5c}\label{class_mini_p_i_d_abaa6fe2cd66e8165015b61df3ee92d5c}} 
+\index{MiniPID@{MiniPID}!lastOutput@{lastOutput}}
+\index{lastOutput@{lastOutput}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{lastOutput}{lastOutput}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::last\+Output\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 52 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_abde3b9126780f67b9176a26eac5cbf86}\label{class_mini_p_i_d_abde3b9126780f67b9176a26eac5cbf86}} 
+\index{MiniPID@{MiniPID}!maxError@{maxError}}
+\index{maxError@{maxError}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{maxError}{maxError}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::max\+Error\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 38 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}\label{class_mini_p_i_d_afe60db5d62beec285aec743099227b1f}} 
+\index{MiniPID@{MiniPID}!maxIOutput@{maxIOutput}}
+\index{maxIOutput@{maxIOutput}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{maxIOutput}{maxIOutput}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::max\+I\+Output\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 37 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_a03a66768b6437135054fc0c2272d4225}\label{class_mini_p_i_d_a03a66768b6437135054fc0c2272d4225}} 
+\index{MiniPID@{MiniPID}!maxOutput@{maxOutput}}
+\index{maxOutput@{maxOutput}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{maxOutput}{maxOutput}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::max\+Output\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 41 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_a123be1f18fc1c3cc7f6b5c890d33aae4}\label{class_mini_p_i_d_a123be1f18fc1c3cc7f6b5c890d33aae4}} 
+\index{MiniPID@{MiniPID}!minOutput@{minOutput}}
+\index{minOutput@{minOutput}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{minOutput}{minOutput}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::min\+Output\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 42 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_a5becd8089bdae07ab6b2f1afc21dc510}\label{class_mini_p_i_d_a5becd8089bdae07ab6b2f1afc21dc510}} 
+\index{MiniPID@{MiniPID}!outputFilter@{outputFilter}}
+\index{outputFilter@{outputFilter}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{outputFilter}{outputFilter}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::output\+Filter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 54 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_a4906d576af316a1f103e5c0dab901acb}\label{class_mini_p_i_d_a4906d576af316a1f103e5c0dab901acb}} 
+\index{MiniPID@{MiniPID}!outputRampRate@{outputRampRate}}
+\index{outputRampRate@{outputRampRate}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{outputRampRate}{outputRampRate}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::output\+Ramp\+Rate\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 51 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}\label{class_mini_p_i_d_adc8a0017e4a058ed575cf3f48b678e5b}} 
+\index{MiniPID@{MiniPID}!P@{P}}
+\index{P@{P}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{P}{P}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::P\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 32 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_ae165f7e6d27f6164d99481a53335b4a4}\label{class_mini_p_i_d_ae165f7e6d27f6164d99481a53335b4a4}} 
+\index{MiniPID@{MiniPID}!reversed@{reversed}}
+\index{reversed@{reversed}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{reversed}{reversed}}
+{\footnotesize\ttfamily bool Mini\+P\+I\+D\+::reversed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 49 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}\label{class_mini_p_i_d_a5c1acee5d32f7b9a5c1326b610fca158}} 
+\index{MiniPID@{MiniPID}!setpoint@{setpoint}}
+\index{setpoint@{setpoint}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setpoint}{setpoint}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::setpoint\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 44 of file Mini\+P\+I\+D.\+h.
+
+\mbox{\Hypertarget{class_mini_p_i_d_a3031543f427e6a6c616d470d8ac854ed}\label{class_mini_p_i_d_a3031543f427e6a6c616d470d8ac854ed}} 
+\index{MiniPID@{MiniPID}!setpointRange@{setpointRange}}
+\index{setpointRange@{setpointRange}!MiniPID@{MiniPID}}
+\doxysubsubsection{\texorpdfstring{setpointRange}{setpointRange}}
+{\footnotesize\ttfamily double Mini\+P\+I\+D\+::setpoint\+Range\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 56 of file Mini\+P\+I\+D.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_mini_p_i_d_8h}{Mini\+P\+I\+D.\+h}}\item 
+\mbox{\hyperlink{_mini_p_i_d_8cpp}{Mini\+P\+I\+D.\+cpp}}\end{DoxyCompactItemize}
